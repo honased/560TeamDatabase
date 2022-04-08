@@ -1,34 +1,48 @@
 Param(
    [string] $Server = "(localdb)\MSSQLLocalDb",
-   [string] $Database = "560DB"
+   [string] $Database = "DB560"
 )
 
-# This script requires the SQL Server module for PowerShell.
-# The below commands may be required.
+# Following code adapted from http://cosmonautdreams.com/2013/09/03/Getting-Powershell-to-run-in-64-bit.html
+#############################################################################
+#If Powershell is running the 32-bit version on a 64-bit machine, we
+#need to force powershell to run in 64-bit mode .
+#############################################################################
+if ($env:PROCESSOR_ARCHITEW6432 -eq "AMD64") {
+    write-warning "Swapping to 64 bit powershell process..."
+    if ($myInvocation.Line) {
+        &"$env:WINDIR\sysnative\windowspowershell\v1.0\powershell.exe" -NonInteractive -NoProfile $myInvocation.Line
+    }else{
+        &"$env:WINDIR\sysnative\windowspowershell\v1.0\powershell.exe" -NonInteractive -NoProfile -file "$($myInvocation.InvocationName)" $args
+    }
+exit $lastexitcode
+}
 
-# To check whether the module is installed.
-# Get-Module -ListAvailable -Name SqlServer;
+#############################################################################
+#End
+#############################################################################
 
-# Install the SQL Server Module
-# Install-Module -Name SqlServer -Scope CurrentUser
+# Check if the SqlServer Module is installed. If not, install it
+Write-Host "Checking for SqlServer Module..."
+if (Get-Module -ListAvailable -Name SqlServer) {
+   Write-Host "SqlServer Module Exists!"
+}
+else {
+   Write-Host "SqlServer Module does not exists. Installing module..."
+   Install-PackageProvider NuGet -Scope CurrentUser -Force;
+   Set-PSRepository PSGallery -InstallationPolicy Trusted
+   Install-Module SQLServer -Repository PSGallery -Scope CurrentUser
+   Write-Host "Installed SqlServer Module!"
+}
 
 $CurrentDrive = (Get-Location).Drive.Name + ":"
 
 Write-Host ""
 Write-Host "Rebuilding database $Database on $Server..."
 
-<#
-   If on your local machine, you can drop and re-create the database.
-#>
-#& ".\Scripts\DropDatabase.ps1" -Database $Database
-#& ".\Scripts\CreateDatabase.ps1" -Database $Database
-
-<#
-   If on the department's server, you don't have permissions to drop or create databases.
-   In this case, maintain a script to drop all tables.
-#>
-#Write-Host "Dropping tables..."
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\DropTables.sql"
+# Drop and Recreate the Database
+& $PSScriptRoot\Scripts\DropDatabase.ps1 -Database $Database
+& $PSScriptRoot\Scripts\CreateDatabase.ps1 -Database $Database
 
 Write-Host "Creating schema..."
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Schemas\Person.sql"
