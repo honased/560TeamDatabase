@@ -1,0 +1,24 @@
+IF OBJECT_ID(N'Flix.ShowGenres') IS NULL
+BEGIN
+	CREATE TABLE Flix.ShowGenres
+	(
+		ShowGenreID INT NOT NULL IDENTITY(1, 1),
+		ShowID INT NOT NULL FOREIGN KEY
+			REFERENCES Flix.Show(ShowID),
+		GenreID INT NOT NULL FOREIGN KEY
+			REFERENCES Flix.Genre(GenreID),
+
+
+		CONSTRAINT [PK_ShowGenres_ShowGenreID] PRIMARY KEY CLUSTERED
+		(
+			ShowGenreID ASC
+		),
+
+		CONSTRAINT [UK_ShowGenres_ShowIDGenreID] UNIQUE NONCLUSTERED
+		(
+			GenreID,
+			ShowID
+		)
+
+	);
+END;

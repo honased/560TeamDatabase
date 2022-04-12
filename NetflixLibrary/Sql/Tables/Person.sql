@@ -1,0 +1,15 @@
+IF OBJECT_ID(N'Flix.Person') IS NULL
+BEGIN
+	CREATE TABLE Flix.Person
+	(
+		PersonID INT NOT NULL IDENTITY(1, 1),
+		FirstName NVARCHAR(32) NOT NULL,
+		LastName NVARCHAR(32) NOT NULL,
+
+		CONSTRAINT [PK_Person_PersonID] PRIMARY KEY CLUSTERED
+		(
+			PersonID ASC
+		)
+
+	);
+END;
