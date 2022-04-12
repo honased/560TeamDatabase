@@ -4,9 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NetflixLibrary"
+        xmlns:views="clr-namespace:NetflixLibrary.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <DockPanel>
+        <views:ShowInfo DockPanel.Dock="Right"/>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="2">
+            <TabControl Margin="4">
+                <TabItem Header="My Library">
+                    <views:ShowLibrary/>
+                </TabItem>
+                <TabItem Header="Search Shows"/>
+            </TabControl>
+        </Border>
+    </DockPanel>
 </Window>

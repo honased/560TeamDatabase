@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetflixLibrary.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace NetflixLibrary
         public MainWindow()
         {
             InitializeComponent();
+            var list = new List<Show>();
+            for(int i = 0; i < 20; i++)
+            {
+                list.Add(new Show() { IsMovie = i % 2 == 0, Title = $"{i}", ReleaseYear = 1994 + i, AgeRating = "PG-13" });
+            }
+            DataContext = list;
         }
     }
 }
