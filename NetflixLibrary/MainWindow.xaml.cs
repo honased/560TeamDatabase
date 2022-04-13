@@ -31,5 +31,14 @@ namespace NetflixLibrary
             }
             DataContext = list;
         }
+
+        private void ShowLibrary_ShowClicked(object sender, RoutedEventArgs e)
+        {
+            if(sender is UserControl uc && uc.DataContext is Show s)
+            {
+                e.Handled = true;
+                ShowInfo.DataContext = s;
+            }
+        }
     }
 }

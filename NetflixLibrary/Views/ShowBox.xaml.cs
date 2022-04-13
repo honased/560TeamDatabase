@@ -18,9 +18,29 @@ namespace NetflixLibrary.Views
     /// </summary>
     public partial class ShowBox : UserControl
     {
+        public static readonly RoutedEvent ClickedEvent = EventManager.RegisterRoutedEvent(
+            name: "Clicked",
+            routingStrategy: RoutingStrategy.Bubble,
+            handlerType: typeof(RoutedEventHandler),
+            ownerType: typeof(ShowBox)
+        );
+
+        public event RoutedEventHandler Clicked
+        {
+            add { AddHandler(ClickedEvent, value); }
+            remove { RemoveHandler(ClickedEvent, value); }
+        }
+
         public ShowBox()
         {
             InitializeComponent();
+        }
+
+        private void OnLeftClick(object sender, MouseButtonEventArgs e)
+        {
+            RoutedEventArgs routedEventArgs = new RoutedEventArgs(ClickedEvent);
+
+            RaiseEvent(routedEventArgs);
         }
     }
 }

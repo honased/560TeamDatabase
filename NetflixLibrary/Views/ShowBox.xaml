@@ -6,14 +6,26 @@
              xmlns:local="clr-namespace:NetflixLibrary.Views"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
-    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Width="100" Height="100">
+    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Width="100" Height="100" MouseLeftButtonDown="OnLeftClick">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Text="{Binding Path=Title}"></TextBlock>
-            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Text="{Binding Path=AgeRating}"></TextBlock>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Text="{Binding Path=ReleaseYear}"></TextBlock>
+            <Button Grid.Row="2" Content="{Binding Path=InLibraryString}" Margin="3"></Button>
         </Grid>
+        <Border.Style>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="Background" Value="White"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="LightSkyBlue"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
     </Border>
 </UserControl>

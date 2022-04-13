@@ -5,10 +5,55 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NetflixLibrary.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="100">
-    <StackPanel Orientation="Vertical" Width="100">
-        <ListView ItemsSource="{Binding}">
-            
-        </ListView>
-    </StackPanel>
+             d:DesignHeight="450" d:DesignWidth="200">
+    <Border Width="200" BorderBrush="Black" BorderThickness="1" CornerRadius="8">
+        <DockPanel>
+            <Button DockPanel.Dock="Bottom" Margin="4">Add Watch Log</Button>
+            <StackPanel Orientation="Vertical" Margin="4">
+                <TextBlock Text="{Binding Path=Title}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16" TextWrapping="Wrap"></TextBlock>
+                <TextBlock Text="{Binding Path=MovieString}" HorizontalAlignment="Center" FontStyle="Italic"></TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Released</TextBlock>
+                    <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="0" Text="{Binding Path=ReleasedString}"></TextBlock>
+
+                    <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1">Age Rating</TextBlock>
+                    <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Text="{Binding Path=AgeRating}"></TextBlock>
+
+                    <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2">Director</TextBlock>
+                    <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Director}"></TextBlock>
+
+                    <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3">Genres</TextBlock>
+                    <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Path=GenresString}"></TextBlock>
+
+                    <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4">Avg Rating</TextBlock>
+                    <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap">4.5</TextBlock>
+
+                    <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="5">My Rating</TextBlock>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center" Margin="0, 0, 5, 0">1</TextBlock>
+                        <RadioButton></RadioButton>
+                        <RadioButton></RadioButton>
+                        <RadioButton></RadioButton>
+                        <RadioButton></RadioButton>
+                        <RadioButton></RadioButton>
+                        <TextBlock VerticalAlignment="Center" Margin="5, 0, 0, 0">5</TextBlock>
+                    </StackPanel>
+                </Grid>
+                <TextBlock HorizontalAlignment="Center">Cast</TextBlock>
+                <ListView ItemsSource="{Binding Path=Cast}"/>
+            </StackPanel>
+        </DockPanel>
+    </Border>
 </UserControl>

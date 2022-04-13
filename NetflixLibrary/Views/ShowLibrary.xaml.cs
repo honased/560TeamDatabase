@@ -18,9 +18,19 @@ namespace NetflixLibrary.Views
     /// </summary>
     public partial class ShowLibrary : UserControl
     {
+        public event RoutedEventHandler ShowClicked;
+
         public ShowLibrary()
         {
             InitializeComponent();
+        }
+
+        private void ShowBox_Clicked(object sender, RoutedEventArgs e)
+        {
+            if(sender is ShowBox sb)
+            {
+                ShowClicked.Invoke(sender, e);
+            }
         }
     }
 }
