@@ -58,6 +58,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRo
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Tables\ShowReviews.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Tables\UserShowLibrary.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Tables\ShowWatchCount.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Tables\Netflix.sql"
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\Person.AddressType.sql"
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\Person.PersonAddress.sql"
 
@@ -70,6 +71,13 @@ Write-Host "Stored procedures..."
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.RetrieveAddressesForPerson.sql"
 
 Write-Host "Inserting data..."
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertSpreadsheetData.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertShows.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertGenres.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertShowGenres.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertPeople.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertActors.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertDirectors.sql"
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Data\Person.AddressType.sql"
 
 Write-Host "Rebuild completed."
