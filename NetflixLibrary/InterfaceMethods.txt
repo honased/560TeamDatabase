@@ -1,0 +1,14 @@
+﻿List<Show> GetSimilarShows(UserID, ShowID)
+List<string> GetTopGenres(UserID) // TOP Filter
+List<Show> GetMyFavoriteShows(UserID) // TOP Filter
+List<Show> GetMyMostWatchedShows(UserID) // TOP Filter
+List<Show> SearchShows(UserID, Title, Director, ReleaseYear, Genre) [EDH]
+bool LoginUser(username) // In SQl, return true if found, false otherwise [MW]
+bool RegisterUser(username) // In SQL, return false if found, true otherwise. Also, if not found, insert into UserTable. [MW]
+
+AddShowToLibrary(UserID, ShowID) // Use Merge In Sql [KC]
+RemoveShowFromLibrary(UserID, ShowID) [KC]
+AddWatchLog(UserID, ShowID) [MW]
+AddReview(UserID, SHowID, Review) // Use Merge In SQL [EDH]
+
+List<Show> GetLibrary(UserID) [EDH]
