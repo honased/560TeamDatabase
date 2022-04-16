@@ -1,0 +1,15 @@
+14.0
+13
+1       SQLCHAR             0       0      "|"     1     RowId                     SQL_Latin1_General_CP1_CI_AS
+2       SQLCHAR             0       20      "|"     2     ShowId                     SQL_Latin1_General_CP1_CI_AS
+3       SQLCHAR             0       10      "|"     3     Type                       SQL_Latin1_General_CP1_CI_AS
+4       SQLCHAR             0       128     "|"     4     Title                      SQL_Latin1_General_CP1_CI_AS
+5       SQLCHAR             0       1024    "|"     5     Director                   SQL_Latin1_General_CP1_CI_AS
+6       SQLCHAR             0       1024    "|"     6     Cast                       SQL_Latin1_General_CP1_CI_AS
+7       SQLCHAR             0       1024    "|"     7     Country                    SQL_Latin1_General_CP1_CI_AS
+8       SQLCHAR             0       64     "|"     8     DateAdded                  SQL_Latin1_General_CP1_CI_AS
+9       SQLCHAR             0       64     "|"     9     ReleaseYear                SQL_Latin1_General_CP1_CI_AS
+10       SQLCHAR             0      10      "|"    10     Rating                     SQL_Latin1_General_CP1_CI_AS
+11      SQLCHAR             0       64     "|"     11    Duration                   SQL_Latin1_General_CP1_CI_AS
+12      SQLCHAR             0       1024    "|"     12    ListedIn                   SQL_Latin1_General_CP1_CI_AS
+13      SQLCHAR             0       1024    "\n"   13    Description                SQL_Latin1_General_CP1_CI_AS

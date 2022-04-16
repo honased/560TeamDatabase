@@ -71,7 +71,10 @@ Write-Host "Stored procedures..."
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.RetrieveAddressesForPerson.sql"
 
 Write-Host "Inserting data..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertSpreadsheetData.sql"
+$MyLoc = $PSScriptRoot
+$Variables = "FilePath='$MyLoc\Data\netflix_titles.csv'", "FormatPath='$MyLoc\Data\Netflix.fmt'"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -Variable $Variables -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertSpreadsheetData.sql"
+#bcp DB560.Flix.Netflix in "Data\netflix_titles.csv" -S "(localdb)\MSSQLLocalDb" -T -f Data\Netflix.fmt
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertShows.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertGenres.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\InsertData\InsertShowGenres.sql"
