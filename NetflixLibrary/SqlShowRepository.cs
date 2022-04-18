@@ -22,5 +22,11 @@ namespace NetflixLibrary
             var d = new SearchShowsDataDelegate(userID, title, releaseYear);
             return executor.ExecuteReader(d);
         }
+
+        public static void ReviewShow(int userID, int showID, int review)
+        {
+            var d = new ReviewShowDataDelegate(userID, showID, review);
+            executor.ExecuteNonQuery(d);
+        }
     }
 }

@@ -9,6 +9,6 @@ bool RegisterUser(username) // In SQL, return false if found, true otherwise. Al
 AddShowToLibrary(UserID, ShowID) // Use Merge In Sql [KC]
 RemoveShowFromLibrary(UserID, ShowID) [KC]
 AddWatchLog(UserID, ShowID) [MW]
-AddReview(UserID, SHowID, Review) // Use Merge In SQL [EDH]
+ReviewShow(UserID, SHowID, Review) // Use Merge In SQL [EDH]
 
 List<Show> GetLibrary(UserID) [EDH]

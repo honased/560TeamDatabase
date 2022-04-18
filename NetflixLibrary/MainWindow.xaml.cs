@@ -33,9 +33,6 @@ namespace NetflixLibrary
                 list.Add(new Show() { IsMovie = i % 2 == 0, Title = $"{i}", ReleaseYear = 1994 + i, AgeRating = "PG-13" });
             }
             DataContext = list;
-
-            IReadOnlyList<Show> shows = SqlShowRepository.SearchShows(1, "Twilight", null);
-            int a = 0;
         }
 
         private void ShowLibrary_ShowClicked(object sender, RoutedEventArgs e)
