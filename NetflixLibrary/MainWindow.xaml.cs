@@ -1,4 +1,4 @@
-﻿using NetflixLibrary.Data;
+﻿using NetflixLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +24,18 @@ namespace NetflixLibrary
         public MainWindow()
         {
             InitializeComponent();
+
+            SqlShowRepository.Initialize();
+
             var list = new List<Show>();
             for(int i = 0; i < 20; i++)
             {
                 list.Add(new Show() { IsMovie = i % 2 == 0, Title = $"{i}", ReleaseYear = 1994 + i, AgeRating = "PG-13" });
             }
             DataContext = list;
+
+            IReadOnlyList<Show> shows = SqlShowRepository.SearchShows(1, "Twilight", null);
+            int a = 0;
         }
 
         private void ShowLibrary_ShowClicked(object sender, RoutedEventArgs e)

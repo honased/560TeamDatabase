@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NetflixLibrary.Data
+namespace NetflixLibrary.Models
 {
     public class Show
     {
