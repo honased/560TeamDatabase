@@ -7,8 +7,11 @@
         xmlns:views="clr-namespace:NetflixLibrary.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
-    <DockPanel>
-        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="2">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="2" VerticalAlignment="Stretch" x:Name="Login">
+            <views:LoginScreen OnLogin="LoginScreen_OnLogin"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="2" Visibility="Collapsed" x:Name="Application">
             <TabControl Margin="4">
                 <TabItem Header="My Library">
                     <views:Library/>
@@ -16,5 +19,5 @@
                 <TabItem Header="Search Shows"/>
             </TabControl>
         </Border>
-    </DockPanel>
+    </Grid>
 </Window>

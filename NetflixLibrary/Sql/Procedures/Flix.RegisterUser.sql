@@ -16,5 +16,5 @@ INSERT Flix.[User](Username)
 VALUES(@Username);
 END
 
-SELECT @WillRegisterUser;
+SELECT @WillRegisterUser AS Result;
 END

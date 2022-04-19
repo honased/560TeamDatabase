@@ -19,13 +19,17 @@ namespace NetflixLibrary.DataDelegates
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("username", username);
+            command.Parameters.AddWithValue("Username", username);
 
         }
         public override bool Translate(SqlCommand command, IDataRowReader reader)
         {
-            return reader.Read();
+            if(reader.Read())
+            {
+                return reader.GetValue<bool>("Result");
+            }
 
+            return false;
         }
     }
 }

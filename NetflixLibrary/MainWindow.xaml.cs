@@ -25,5 +25,40 @@ namespace NetflixLibrary
         {
             InitializeComponent();
         }
+
+        private void LoginScreen_OnLogin(object sender, Views.LoginScreen.LoginEventArgs e)
+        {
+            var username = e.Username.Trim();
+            if (username == "")
+            {
+                MessageBox.Show("Error! Please enter in a valid username.");
+                return;
+            }
+
+            if(!e.IsRegister)
+            {
+                if (SqlShowRepository.LoginUser(username))
+                {
+                    Login.Visibility = Visibility.Collapsed;
+                    Application.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    MessageBox.Show($"Error! The username '{username}' was not found.");
+                }
+            }
+            else
+            {
+                if (SqlShowRepository.RegisterUser(username))
+                {
+                    Login.Visibility = Visibility.Collapsed;
+                    Application.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    MessageBox.Show($"Error! The username '{username}' is already taken.");
+                }
+            }
+        }
     }
 }
