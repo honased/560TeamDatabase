@@ -24,17 +24,6 @@ namespace NetflixLibrary
         public MainWindow()
         {
             InitializeComponent();
-
-            DataContext = SqlShowRepository.SearchShows(1, "Twilight", "", null, null, false);
-        }
-
-        private void ShowLibrary_ShowClicked(object sender, RoutedEventArgs e)
-        {
-            if(sender is UserControl uc && uc.DataContext is Show s)
-            {
-                e.Handled = true;
-                ShowInfo.DataContext = s;
-            }
         }
     }
 }

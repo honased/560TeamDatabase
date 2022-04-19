@@ -38,7 +38,7 @@ namespace NetflixLibrary.DataDelegates
             if(releaseYear.HasValue) command.Parameters.AddWithValue("ReleaseYear", releaseYear.Value);
             else command.Parameters.AddWithValue("ReleaseYear", DBNull.Value);
             
-            if (releaseYear.HasValue) command.Parameters.AddWithValue("GenreID", genre.Value);
+            if (genre.HasValue) command.Parameters.AddWithValue("GenreID", genre.Value);
             else command.Parameters.AddWithValue("GenreID", DBNull.Value);
 
             command.Parameters.AddWithValue("SearchLibrary", searchLibrary);

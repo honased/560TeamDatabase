@@ -16,11 +16,11 @@ namespace NetflixLibrary.Views
     /// <summary>
     /// Interaction logic for ShowLibrary.xaml
     /// </summary>
-    public partial class ShowLibrary : UserControl
+    public partial class ShowDisplay : UserControl
     {
         public event RoutedEventHandler ShowClicked;
 
-        public ShowLibrary()
+        public ShowDisplay()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace NetflixLibrary.Views
         {
             if(sender is ShowBox sb)
             {
-                ShowClicked.Invoke(sender, e);
+                ShowClicked?.Invoke(sender, e);
             }
         }
     }
