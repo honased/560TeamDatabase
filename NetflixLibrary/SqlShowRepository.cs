@@ -41,5 +41,17 @@ namespace NetflixLibrary
             var d = new LoginUserDataDelegate(username);
             return executor.ExecuteReader(d);
         }
+
+        public static bool RegisterUser(string username)
+        {
+            var d = new RegisterUserDataDelegate(username);
+            return executor.ExecuteReader(d);
+        }
+
+        public static void AddWatchLog(int UserID, int showID)
+        {
+            var d = new AddWatchLogDataDelegate(UserID, showID);
+            executor.ExecuteNonQuery(d);
+        }
     }
 }
