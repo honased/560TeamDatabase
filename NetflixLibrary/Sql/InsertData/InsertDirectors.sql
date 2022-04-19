@@ -8,5 +8,5 @@ WITH ListedPeople AS
 INSERT Flix.Director(ShowId, PersonId)
 SELECT LP.ShowId, P.PersonID
 FROM ListedPeople LP
-	RIGHT JOIN Flix.Person P ON P.FirstName + ' ' + P.LastName = LP.[Name]
-WHERE LP.ShowId IS NOT NULL;
+	INNER JOIN Flix.Person P ON P.FirstName = SUBSTRING(LP.[Name], 0, LEN(LP.[Name]) - CHARINDEX(' ',REVERSE(LP.[Name])) + 2)
+	AND P.LastName = SUBSTRING(LP.[Name], LEN(LP.[Name]) - CHARINDEX(' ',REVERSE(LP.[Name])) + 2, LEN(LP.[Name]));
