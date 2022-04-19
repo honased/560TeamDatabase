@@ -23,5 +23,17 @@ namespace NetflixLibrary
             var d = new ReviewShowDataDelegate(userID, showID, review);
             executor.ExecuteNonQuery(d);
         }
+
+        public static void AddShowToLibrary(int userID, int showID)
+        {
+            var d = new AddShowToLibraryDataDelegate(userID, showID);
+            executor.ExecuteNonQuery(d);
+        }
+
+        public static void RemoveShowFromLibrary(int userID, int showID)
+        {
+            var d = new RemoveShowFromLibraryDataDelegate(userID, showID);
+            executor.ExecuteNonQuery(d);
+        }
     }
 }
