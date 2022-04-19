@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="Sql\Schemas\" />
-    <Folder Include="Sql\Procedures\" />
   </ItemGroup>
 
   <ItemGroup>
