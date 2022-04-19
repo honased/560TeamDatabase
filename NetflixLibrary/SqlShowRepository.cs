@@ -35,5 +35,11 @@ namespace NetflixLibrary
             var d = new RemoveShowFromLibraryDataDelegate(userID, showID);
             executor.ExecuteNonQuery(d);
         }
+
+        public static bool LoginUser(string username)
+        {
+            var d = new LoginUserDataDelegate(username);
+            return executor.ExecuteReader(d);
+        }
     }
 }
