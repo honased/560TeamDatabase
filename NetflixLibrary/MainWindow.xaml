@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:NetflixLibrary"
         xmlns:views="clr-namespace:NetflixLibrary.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="720" Width="1280">
     <DockPanel>
         <views:ShowInfo DockPanel.Dock="Right" x:Name="ShowInfo"  Margin="2"/>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="2">

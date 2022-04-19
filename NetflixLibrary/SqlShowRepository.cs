@@ -10,16 +10,11 @@ namespace NetflixLibrary
     public static class SqlShowRepository
     {
         private const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=DB560;Integrated Security=SSPI;";
-        private static SqlCommandExecutor executor;
+        private static SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
 
-        public static void Initialize()
+        public static IReadOnlyList<Show> SearchShows(int userID, string title, string director, int? releaseYear, int? genreID, bool inLibrary)
         {
-            executor = new SqlCommandExecutor(connectionString);
-        }
-
-        public static IReadOnlyList<Show> SearchShows(int userID, string title, int? releaseYear)
-        {
-            var d = new SearchShowsDataDelegate(userID, title, releaseYear);
+            var d = new SearchShowsDataDelegate(userID, title, director, releaseYear, genreID, inLibrary);
             return executor.ExecuteReader(d);
         }
 

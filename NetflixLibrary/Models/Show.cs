@@ -6,6 +6,7 @@ namespace NetflixLibrary.Models
 {
     public class Show
     {
+        public int ShowID { get; }
         public string Title { get; set; }
         public bool IsMovie { get; set; }
         public int ReleaseYear { get; set; }
@@ -35,16 +36,11 @@ namespace NetflixLibrary.Models
             }
         }
 
-        public Show()
+        public Show(int showID)
         {
-            Genres = new List<string>();
-            Genres.Add("Horror");
-            Genres.Add("Action");
-
+            ShowID = showID;
             Cast = new List<string>();
-            Cast.Add("Eric Honas");
-            Cast.Add("Katia Coleman");
-            Cast.Add("Mason Wittman");
+            Genres = new List<string>();
         }
     }
 }
