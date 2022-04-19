@@ -4,11 +4,11 @@ List<Show> GetMyFavoriteShows(UserID) // TOP Filter [MW]
 List<Show> GetMyMostWatchedShows(UserID) // TOP Filter [MW]
 O List<Show> SearchShows(UserID, Title, Director, ReleaseYear, Genre, SearchLibrary) [EDH]
 X bool LoginUser(username) // In SQl, return true if found, false otherwise [MW]
-O bool RegisterUser(username) // In SQL, return false if found, true otherwise. Also, if not found, insert into UserTable. [MW]
+X bool RegisterUser(username) // In SQL, return false if found, true otherwise. Also, if not found, insert into UserTable. [MW]
 
 X AddShowToLibrary(UserID, ShowID) // Use Merge In Sql [KC]
 X RemoveShowFromLibrary(UserID, ShowID) [KC]
-O AddWatchLog(UserID, ShowID) [MW]
+X AddWatchLog(UserID, ShowID) [MW]
 X ReviewShow(UserID, SHowID, Review) // Use Merge In SQL [EDH]
 
 NEW INTERFACE METHODS
