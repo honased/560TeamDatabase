@@ -70,5 +70,12 @@ namespace NetflixLibrary
         {
             search.Refresh();
         }
+
+        private void SignOut(object sender, RoutedEventArgs e)
+        {
+            Application.Visibility = Visibility.Collapsed;
+            Login.Visibility = Visibility.Visible;
+            lgScreen.Clear();
+        }
     }
 }

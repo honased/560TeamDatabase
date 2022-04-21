@@ -40,5 +40,10 @@ namespace NetflixLibrary.Views
         {
             OnLogin?.Invoke(this, new LoginEventArgs() { IsRegister = true, Username = UsernameText.Text });
         }
+
+        public void Clear()
+        {
+            UsernameText.Clear();
+        }
     }
 }
