@@ -13,11 +13,11 @@
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="2" Visibility="Collapsed" x:Name="Application">
             <TabControl Margin="4">
-                <TabItem Header="My Library">
-                    <views:Library/>
+                <TabItem Header="My Library" Selector.Selected="LibrarySelected">
+                    <views:Library x:Name="library"/>
                 </TabItem>
-                <TabItem Header="Search Shows">
-                    <views:Search/>
+                <TabItem Header="Search Shows" Selector.Selected="SearchSelected">
+                    <views:Search x:Name="search"/>
                 </TabItem>
             </TabControl>
         </Border>

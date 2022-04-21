@@ -19,9 +19,16 @@ namespace NetflixLibrary.Views
     /// </summary>
     public partial class Search : UserControl
     {
+        private SearchBar.SearchEventArgs lastSearch;
+
         public Search()
         {
             InitializeComponent();
+
+            lastSearch = new SearchBar.SearchEventArgs();
+            lastSearch.Director = "";
+            lastSearch.ReleaseYear = "";
+            lastSearch.Title = "";
         }
 
         private void SearchBar_OnSearch(object sender, SearchBar.SearchEventArgs e)
@@ -42,7 +49,8 @@ namespace NetflixLibrary.Views
                 }
             }
 
-            Display.DataContext = SqlShowRepository.SearchShows(1, e.Title, e.Director, releaseYear, null, false);
+            Display.DataContext = new PaginatedShows(SqlShowRepository.SearchShows(1, e.Title, e.Director, releaseYear, null, false));
+            lastSearch = e;
         }
 
         private void Display_ShowClicked(object sender, RoutedEventArgs e)
@@ -52,6 +60,11 @@ namespace NetflixLibrary.Views
                 e.Handled = true;
                 ShowInfo.DataContext = s;
             }
+        }
+
+        public void Refresh()
+        {
+            //SearchBar_OnSearch(this, lastSearch);
         }
     }
 }

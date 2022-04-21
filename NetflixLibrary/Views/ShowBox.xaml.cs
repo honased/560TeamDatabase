@@ -47,5 +47,16 @@ namespace NetflixLibrary.Views
                 RaiseEvent(routedEventArgs);
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(DataContext is Show s)
+            {
+                if (!s.InLibrary) SqlShowRepository.AddShowToLibrary(1, s.ShowID);
+                else SqlShowRepository.RemoveShowFromLibrary(1, s.ShowID);
+
+                s.InLibrary = !s.InLibrary;
+            }
+        }
     }
 }

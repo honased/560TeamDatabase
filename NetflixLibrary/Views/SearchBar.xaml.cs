@@ -36,5 +36,13 @@ namespace NetflixLibrary.Views
         {
             OnSearch?.Invoke(this, new SearchEventArgs() { Director = DirectorText.Text, ReleaseYear = ReleaseYearText.Text, Title = TitleText.Text });
         }
+
+        private void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                OnSearch?.Invoke(this, new SearchEventArgs() { Director = DirectorText.Text, ReleaseYear = ReleaseYearText.Text, Title = TitleText.Text });
+            }
+        }
     }
 }

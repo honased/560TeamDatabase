@@ -15,7 +15,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Text="{Binding Path=Title}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontWeight="Bold"></TextBlock>
             <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" Text="{Binding Path=ReleaseYear}"></TextBlock>
-            <Button Grid.Row="2" Content="{Binding Path=InLibraryString}" Margin="3"></Button>
+            <Button Grid.Row="2" Content="{Binding Path=InLibraryString}" Margin="3" Click="Button_Click"></Button>
         </Grid>
         <Border.Style>
             <Style TargetType="{x:Type Border}">

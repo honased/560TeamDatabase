@@ -60,5 +60,15 @@ namespace NetflixLibrary
                 }
             }
         }
+
+        private void LibrarySelected(object sender, RoutedEventArgs e)
+        {
+            library.Refresh();
+        }
+
+        private void SearchSelected(object sender, RoutedEventArgs e)
+        {
+            search.Refresh();
+        }
     }
 }

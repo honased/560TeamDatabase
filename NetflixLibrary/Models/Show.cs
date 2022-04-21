@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace NetflixLibrary.Models
 {
-    public class Show
+    public class Show : INotifyPropertyChanged
     {
         public int ShowID { get; }
         public string Title { get; set; }
@@ -12,7 +13,21 @@ namespace NetflixLibrary.Models
         public int ReleaseYear { get; set; }
         public string AgeRating { get; set; }
         public string Director { get; set; }
-        public bool InLibrary { get; set; }
+
+        private bool _inLibrary;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public bool InLibrary
+        {
+            get => _inLibrary;
+            set
+            {
+                bool notifyChanged = _inLibrary != value;
+                _inLibrary = value;
+                if (notifyChanged) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("InLibraryString"));
+            }
+        }
 
         public List<string> Genres { get; set; }
 
