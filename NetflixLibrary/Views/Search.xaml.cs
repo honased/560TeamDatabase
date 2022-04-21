@@ -49,7 +49,8 @@ namespace NetflixLibrary.Views
                 }
             }
 
-            Display.DataContext = new PaginatedShows(SqlShowRepository.SearchShows(1, e.Title, e.Director, releaseYear, null, false));
+            Display.DataContext = new PaginatedShows(SqlNetflixRepository.SearchShows(SqlNetflixRepository.LoggedInUserID, e.Title, e.Director, releaseYear, null, false));
+            PageControl.DataContext = Display.DataContext;
             lastSearch = e;
         }
 

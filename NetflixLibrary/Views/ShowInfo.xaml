@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NetflixLibrary.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
-    <Border Width="200" BorderBrush="Black" BorderThickness="1" CornerRadius="8">
+    <Border Width="200" BorderBrush="Black" BorderThickness="1" CornerRadius="8" DataContextChanged="OnDataContextChanged">
         <DockPanel>
             <Button DockPanel.Dock="Bottom" Margin="4">Add Watch Log</Button>
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
@@ -42,15 +42,7 @@
                         <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Path=AverageRatingString}"></TextBlock>
 
                         <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="5">My Rating</TextBlock>
-                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right">
-                            <TextBlock VerticalAlignment="Center" Margin="0, 0, 5, 0">1</TextBlock>
-                            <RadioButton></RadioButton>
-                            <RadioButton></RadioButton>
-                            <RadioButton></RadioButton>
-                            <RadioButton></RadioButton>
-                            <RadioButton></RadioButton>
-                            <TextBlock VerticalAlignment="Center" Margin="5, 0, 0, 0">5</TextBlock>
-                        </StackPanel>
+                        <local:ReviewBar Grid.Column="1" Grid.Row="5" OnReview="ReviewBar_OnReview" x:Name="reviewBar"/>
                     </Grid>
                     <TextBlock HorizontalAlignment="Center">Cast</TextBlock>
                     <ListView ItemsSource="{Binding Path=Cast}"/>

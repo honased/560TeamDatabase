@@ -1,0 +1,22 @@
+VIEW (EDH)
+    - Fully integrate reviews
+    - Fully integrate show watch log
+    - Add a log out feature
+    - Add a tab with user info (like favorite shows)
+    - Add support for similar shows button
+
+SQL
+    - Review if all columns are necessary (MW)
+    - GetTopGenres (MW)
+    - Test in general (KC) [ GetSimilarShows, GetMyFavoriteShows, GetMyMostWatchedShows ]
+    - Demo Data (KC)
+    - Figure out how to remove the extra space on the first name for the person table
+
+Project
+    - Kick out SQL related code to separate project (MW)
+
+Project Report
+
+Code Submission
+
+Presentation Powerpoint (Google Slides)

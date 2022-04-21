@@ -7,10 +7,12 @@ using System.Text;
 
 namespace NetflixLibrary
 {
-    public static class SqlShowRepository
+    public static class SqlNetflixRepository
     {
         private const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=DB560;Integrated Security=SSPI;";
         private static SqlCommandExecutor executor = new SqlCommandExecutor(connectionString);
+
+        public static int LoggedInUserID { get; private set; }
 
         public static IReadOnlyList<Show> SearchShows(int userID, string title, string director, int? releaseYear, int? genreID, bool inLibrary)
         {
@@ -80,13 +82,17 @@ namespace NetflixLibrary
         public static bool LoginUser(string username)
         {
             var d = new LoginUserDataDelegate(username);
-            return executor.ExecuteReader(d);
+            var userID = executor.ExecuteReader(d);
+            if (userID.HasValue) LoggedInUserID = userID.Value;
+            return userID.HasValue;
         }
 
         public static bool RegisterUser(string username)
         {
             var d = new RegisterUserDataDelegate(username);
-            return executor.ExecuteReader(d);
+            var userID = executor.ExecuteReader(d);
+            if (userID.HasValue) LoggedInUserID = userID.Value;
+            return userID.HasValue;
         }
 
         public static void AddWatchLog(int UserID, int showID)

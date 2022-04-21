@@ -33,7 +33,7 @@ SELECT S.ShowID, S.Title, S.IsMovie, ISNULL(S.AgeRating, N'Unknown') AS AgeRatin
 		WHERE R.UserID = @UserID
 	) AS MyReview,
 	(
-		SELECT CAST(SUM(R.Review) / COUNT(*) AS float)
+		SELECT CAST(SUM(R.Review) AS float) / CAST(COUNT(*) AS float)
 		FROM Reviews R
 	) AS AverageReview
 FROM Flix.Show S

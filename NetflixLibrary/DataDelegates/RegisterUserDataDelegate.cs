@@ -6,7 +6,7 @@ using System.Text;
 
 namespace NetflixLibrary.DataDelegates
 {
-    internal class RegisterUserDataDelegate : DataReaderDelegate<bool>
+    internal class RegisterUserDataDelegate : DataReaderDelegate<int?>
     {
         private readonly string username;
         public RegisterUserDataDelegate(string username)
@@ -22,14 +22,14 @@ namespace NetflixLibrary.DataDelegates
             command.Parameters.AddWithValue("Username", username);
 
         }
-        public override bool Translate(SqlCommand command, IDataRowReader reader)
+        public override int? Translate(SqlCommand command, IDataRowReader reader)
         {
             if(reader.Read())
             {
-                return reader.GetValue<bool>("Result");
+                return reader.GetInt32("UserID");
             }
 
-            return false;
+            return null;
         }
     }
 }

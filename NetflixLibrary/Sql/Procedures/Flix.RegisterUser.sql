@@ -14,7 +14,8 @@ IF(@WillRegisterUser = 1)
 BEGIN
 INSERT Flix.[User](Username)
 VALUES(@Username);
+
+SELECT CAST(SCOPE_IDENTITY() AS int) AS UserID;
 END
 
-SELECT @WillRegisterUser AS Result;
 END

@@ -41,7 +41,7 @@ namespace NetflixLibrary.Views
         {
             if(DataContext is Show s)
             {
-                SqlShowRepository.PopulateShowInfo(1, s);
+                SqlNetflixRepository.PopulateShowInfo(SqlNetflixRepository.LoggedInUserID, s);
 
                 RoutedEventArgs routedEventArgs = new RoutedEventArgs(ClickedEvent);
                 RaiseEvent(routedEventArgs);
@@ -52,8 +52,8 @@ namespace NetflixLibrary.Views
         {
             if(DataContext is Show s)
             {
-                if (!s.InLibrary) SqlShowRepository.AddShowToLibrary(1, s.ShowID);
-                else SqlShowRepository.RemoveShowFromLibrary(1, s.ShowID);
+                if (!s.InLibrary) SqlNetflixRepository.AddShowToLibrary(SqlNetflixRepository.LoggedInUserID, s.ShowID);
+                else SqlNetflixRepository.RemoveShowFromLibrary(SqlNetflixRepository.LoggedInUserID, s.ShowID);
 
                 s.InLibrary = !s.InLibrary;
             }

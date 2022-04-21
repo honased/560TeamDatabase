@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetflixLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,23 @@ namespace NetflixLibrary.Views
         public ShowInfo()
         {
             InitializeComponent();
+        }
+
+        private void ReviewBar_OnReview(object sender, int e)
+        {
+            if(DataContext is Show s)
+            {
+                SqlNetflixRepository.ReviewShow(SqlNetflixRepository.LoggedInUserID, s.ShowID, e);
+                SqlNetflixRepository.PopulateShowInfo(SqlNetflixRepository.LoggedInUserID, s);
+            }
+        }
+
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(DataContext is Show s)
+            {
+                reviewBar.SetReview(s.MyReview);
+            }
         }
     }
 }

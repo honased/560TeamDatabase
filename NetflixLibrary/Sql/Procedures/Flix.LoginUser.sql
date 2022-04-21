@@ -2,12 +2,6 @@
 	@Username NVARCHAR(64)
 AS
 
-SELECT CASE WHEN EXISTS (
-	SELECT *
-	FROM Flix.[User] U
-	WHERE U.Username = @Username
-)
-THEN CAST(1 AS BIT)
-ELSE CAST(0 AS BIT) END AS Result
-GO
-
+SELECT U.UserID
+FROM Flix.[User] U
+WHERE U.Username = @Username

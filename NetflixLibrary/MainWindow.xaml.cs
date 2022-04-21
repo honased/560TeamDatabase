@@ -37,7 +37,7 @@ namespace NetflixLibrary
 
             if(!e.IsRegister)
             {
-                if (SqlShowRepository.LoginUser(username))
+                if (SqlNetflixRepository.LoginUser(username))
                 {
                     Login.Visibility = Visibility.Collapsed;
                     Application.Visibility = Visibility.Visible;
@@ -49,7 +49,7 @@ namespace NetflixLibrary
             }
             else
             {
-                if (SqlShowRepository.RegisterUser(username))
+                if (SqlNetflixRepository.RegisterUser(username))
                 {
                     Login.Visibility = Visibility.Collapsed;
                     Application.Visibility = Visibility.Visible;
