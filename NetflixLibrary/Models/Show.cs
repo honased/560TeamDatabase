@@ -37,6 +37,12 @@ namespace NetflixLibrary.Models
         public string ReleasedString => $"{ReleaseYear}";
         public string InLibraryString => InLibrary ? "Remove" : "Add";
 
+        public string AverageRatingString => AverageReview.HasValue ? AverageReview.ToString() : "N/A";
+
+        public double? AverageReview { get; set; }
+
+        public int? MyReview { get; set; }
+
         public string GenresString
         {
             get

@@ -23,21 +23,23 @@ namespace NetflixLibrary
             return shows;
         }
 
-        public static Show GetShow(int showID)
+        public static Show GetShow(int userID, int showID)
         {
-            var d = new GetShowDataDelegate(showID);
+            var d = new GetShowDataDelegate(userID, showID);
             return executor.ExecuteReader(d);
         }
 
-        public static void PopulateShowInfo(Show show)
+        public static void PopulateShowInfo(int userID, Show show)
         {
-            Show s = GetShow(show.ShowID);
+            Show s = GetShow(userID, show.ShowID);
 
             show.IsMovie = s.IsMovie;
             show.AgeRating = s.AgeRating;
             show.Genres = s.Genres;
             show.Cast = s.Cast;
             show.Director = s.Director;
+            show.MyReview = s.MyReview;
+            show.AverageReview = s.AverageReview;
         }
 
         public static void ReviewShow(int userID, int showID, int review)

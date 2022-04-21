@@ -41,7 +41,7 @@ namespace NetflixLibrary.Views
         {
             if(DataContext is Show s)
             {
-                SqlShowRepository.PopulateShowInfo(s);
+                SqlShowRepository.PopulateShowInfo(1, s);
 
                 RoutedEventArgs routedEventArgs = new RoutedEventArgs(ClickedEvent);
                 RaiseEvent(routedEventArgs);

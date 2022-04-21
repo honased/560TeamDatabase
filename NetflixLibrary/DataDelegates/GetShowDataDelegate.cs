@@ -9,11 +9,13 @@ namespace NetflixLibrary.DataDelegates
 {
     internal class GetShowDataDelegate : DataReaderDelegate<Show>
     {
+        private readonly int userID;
         private readonly int showID;
 
-        public GetShowDataDelegate(int showID)
+        public GetShowDataDelegate(int userID, int showID)
             : base("Flix.GetShow")
         {
+            this.userID = userID;
             this.showID = showID;
         }
 
@@ -21,6 +23,7 @@ namespace NetflixLibrary.DataDelegates
         {
             base.PrepareCommand(command);
 
+            command.Parameters.AddWithValue("UserID", userID);
             command.Parameters.AddWithValue("ShowID", showID);
         }
 
@@ -41,6 +44,12 @@ namespace NetflixLibrary.DataDelegates
             show.Cast.AddRange(cast);
 
             show.Director = reader.GetString("Directors");
+
+            if (reader.IsDBNull("MyReview")) show.MyReview = null;
+            else show.MyReview = reader.GetInt32("MyReview");
+
+            if (reader.IsDBNull("AverageReview")) show.AverageReview = null;
+            else show.AverageReview = reader.GetValue<double>("AverageReview");
 
             return show;
         }

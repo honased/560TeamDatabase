@@ -38,8 +38,8 @@
                         <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3">Genres</TextBlock>
                         <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Path=GenresString}"></TextBlock>
 
-                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4">Avg Rating</TextBlock>
-                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap">4.5</TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4">Rating</TextBlock>
+                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Path=AverageRatingString}"></TextBlock>
 
                         <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="5">My Rating</TextBlock>
                         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right">
