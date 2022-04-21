@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="NetflixLibrary.Views.LoginScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NetflixLibrary.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1800">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="48">Netflix Library Login</TextBlock>
+        <Grid Width="800" Height="100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8, 0" FontSize="20">Username:</TextBlock>
+                <TextBox Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" VerticalContentAlignment="Center" x:Name="UsernameText"/>
+            </Grid>
+            <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="2, 2" FontSize="20" VerticalAlignment="Stretch" Click="Login_Click">Login</Button>
+            <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="2, 2" FontSize="20" VerticalAlignment="Stretch" Click="Register_Click">Register</Button>
+        </Grid>
+    </DockPanel>
+</UserControl>

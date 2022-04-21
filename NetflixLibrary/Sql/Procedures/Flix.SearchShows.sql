@@ -14,13 +14,25 @@ WITH UserLibrary(ShowID) AS
 			INNER JOIN Flix.[UserShowLibrary] USL ON USL.UserID = U.UserID
 		WHERE U.UserID = @UserID AND USL.IsDeleted = 0
 	)
-SELECT S.ShowID, S.Title, ISNULL(S.AgeRating, N'Unknown') AS AgeRating, S.IsMovie, S.ReleaseYear, ISNULL(STRING_AGG(G.Genre, ','), N'') AS Genres,
+SELECT S.ShowID, S.Title, ISNULL(S.AgeRating, N'Unknown') AS AgeRating, S.IsMovie, S.ReleaseYear,
+	(
+		SELECT ISNULL(STRING_AGG(G2.Genre, ','), N'')
+		FROM Flix.ShowGenres SG2
+			INNER JOIN Flix.Genre G2 ON G2.GenreID = SG2.GenreID
+		WHERE SG2.ShowID = S.ShowID
+	) AS Genres,
 	(
 		SELECT ISNULL(STRING_AGG(P2.FirstName + N' ' + P2.LastName, ','), N'')
 		FROM Flix.Actor A
 			INNER JOIN Flix.Person P2 ON P2.PersonID = A.PersonID
 		WHERE A.ShowID = S.ShowID
-	) AS [Cast]
+	) AS [Cast],
+	(
+		SELECT ISNULL(STRING_AGG(P3.FirstName + N' ' + P3.LastName, ','), N'')
+		FROM Flix.Director D2
+			INNER JOIN Flix.Person P3 ON D2.PersonID = P3.PersonID
+		WHERE D2.ShowID = S.ShowID
+	) AS Directors
 FROM Flix.Show S
 	LEFT JOIN Flix.Director D ON D.ShowID = S.ShowID
 	LEFT JOIN Flix.Person P ON P.PersonID = D.PersonID

@@ -16,7 +16,9 @@
                 <TabItem Header="My Library">
                     <views:Library/>
                 </TabItem>
-                <TabItem Header="Search Shows"/>
+                <TabItem Header="Search Shows">
+                    <views:Search/>
+                </TabItem>
             </TabControl>
         </Border>
     </Grid>

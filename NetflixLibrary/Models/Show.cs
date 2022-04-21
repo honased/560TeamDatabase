@@ -27,9 +27,10 @@ namespace NetflixLibrary.Models
             get
             {
                 StringBuilder builder = new StringBuilder();
-                foreach (string genre in Genres)
+                for(int i = 0; i < Genres.Count; i++)
                 {
-                    builder.Append(genre + " ");
+                    if (i < Genres.Count - 1) builder.Append(Genres[i] + ", ");
+                    else builder.Append(Genres[i]);
                 }
 
                 return builder.ToString().Trim();

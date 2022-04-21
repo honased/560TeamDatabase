@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 namespace NetflixLibrary.Views
 {
     /// <summary>
-    /// Interaction logic for Library.xaml
+    /// Interaction logic for Search.xaml
     /// </summary>
-    public partial class Library : UserControl
+    public partial class Search : UserControl
     {
-        public Library()
+        public Search()
         {
             InitializeComponent();
-            //Display.DataContext = new PaginatedShows(SqlShowRepository.SearchShows(1, "", "", null, null, false));
         }
 
         private void SearchBar_OnSearch(object sender, SearchBar.SearchEventArgs e)
@@ -32,7 +31,7 @@ namespace NetflixLibrary.Views
             if (e.ReleaseYear.Trim() == "") releaseYear = null;
             else
             {
-                if(int.TryParse(e.ReleaseYear, out int actualYear))
+                if (int.TryParse(e.ReleaseYear, out int actualYear))
                 {
                     releaseYear = actualYear;
                 }
@@ -43,13 +42,12 @@ namespace NetflixLibrary.Views
                 }
             }
 
-            Display.DataContext = new PaginatedShows(SqlShowRepository.SearchShows(1, e.Title, e.Director, releaseYear, null, false));
-            PageControl.DataContext = Display.DataContext;
+            Display.DataContext = SqlShowRepository.SearchShows(1, e.Title, e.Director, releaseYear, null, false);
         }
 
         private void Display_ShowClicked(object sender, RoutedEventArgs e)
         {
-            if(sender is UserControl uc && uc.DataContext is Show s)
+            if (sender is UserControl uc && uc.DataContext is Show s)
             {
                 e.Handled = true;
                 ShowInfo.DataContext = s;

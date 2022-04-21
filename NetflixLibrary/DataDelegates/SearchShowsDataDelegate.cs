@@ -62,6 +62,8 @@ namespace NetflixLibrary.DataDelegates
                 string[] cast = reader.GetString("Cast").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                 show.Cast.AddRange(cast);
 
+                show.Director = reader.GetString("Directors");
+
                 shows.Add(show);
             }
 
