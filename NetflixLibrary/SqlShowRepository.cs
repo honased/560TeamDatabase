@@ -41,6 +41,23 @@ namespace NetflixLibrary
             show.MyReview = s.MyReview;
             show.AverageReview = s.AverageReview;
         }
+        
+        public static IReadOnlyList<Show> GetMyFavoriteShows(int userID)
+        {
+            var d = new GetMyFavoriteShowsDataDelegate(userID);
+            return executor.ExecuteReader(d);
+        }
+        public static IReadOnlyList<Show> GetMyMostWatchedShows(int userID)
+        {
+            var d = new GetMyMostWatchedShowsDataDelegate(userID);
+            return executor.ExecuteReader(d);
+        }
+
+        public static IReadOnlyList<Genre> GetAllGenres()
+        {
+            var d = new GetAllGenresDataDelegate();
+            return executor.ExecuteReader(d);
+        }
 
         public static void ReviewShow(int userID, int showID, int review)
         {

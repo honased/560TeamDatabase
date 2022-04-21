@@ -1,0 +1,6 @@
+﻿CREATE OR ALTER PROCEDURE Flix.GetAllGenres
+AS
+
+SELECT G.GenreID, G.Genre
+FROM Flix.Genre G
+GO

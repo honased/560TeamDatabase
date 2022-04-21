@@ -72,6 +72,10 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRo
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Procedures\Flix.ReviewShow.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Procedures\Flix.SearchShows.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Procedures\Flix.GetSimilarShows.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Procedures\Flix.GetAllGenres.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Procedures\Flix.GetMyFavoriteShows.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixLibrary\Sql\Procedures\Flix.GetMyMostWatchedShows.sql"
+
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.RetrievePersons.sql"
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.FetchPerson.sql"
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.GetPerson.sql"
