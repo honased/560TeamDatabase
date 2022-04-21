@@ -15,7 +15,29 @@ namespace NetflixLibrary
         public static IReadOnlyList<Show> SearchShows(int userID, string title, string director, int? releaseYear, int? genreID, bool inLibrary)
         {
             var d = new SearchShowsDataDelegate(userID, title, director, releaseYear, genreID, inLibrary);
+            var shows = executor.ExecuteReader(d);
+            foreach(Show s in shows)
+            {
+                s.InLibrary = inLibrary;
+            }
+            return shows;
+        }
+
+        public static Show GetShow(int showID)
+        {
+            var d = new GetShowDataDelegate(showID);
             return executor.ExecuteReader(d);
+        }
+
+        public static void PopulateShowInfo(Show show)
+        {
+            Show s = GetShow(show.ShowID);
+
+            show.IsMovie = s.IsMovie;
+            show.AgeRating = s.AgeRating;
+            show.Genres = s.Genres;
+            show.Cast = s.Cast;
+            show.Director = s.Director;
         }
 
         public static void ReviewShow(int userID, int showID, int review)

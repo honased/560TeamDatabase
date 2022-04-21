@@ -52,17 +52,7 @@ namespace NetflixLibrary.DataDelegates
             {
                 var show = new Show(reader.GetInt32("ShowID"));
                 show.Title = reader.GetString("Title");
-                show.AgeRating = reader.GetString("AgeRating");
-                show.IsMovie = reader.GetValue<bool>("IsMovie");
                 show.ReleaseYear = reader.GetInt32("ReleaseYear");
-
-                string[] genres = reader.GetString("Genres").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                show.Genres.AddRange(genres);
-
-                string[] cast = reader.GetString("Cast").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                show.Cast.AddRange(cast);
-
-                show.Director = reader.GetString("Directors");
 
                 shows.Add(show);
             }

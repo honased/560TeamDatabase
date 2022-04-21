@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetflixLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -38,9 +39,13 @@ namespace NetflixLibrary.Views
 
         private void OnLeftClick(object sender, MouseButtonEventArgs e)
         {
-            RoutedEventArgs routedEventArgs = new RoutedEventArgs(ClickedEvent);
+            if(DataContext is Show s)
+            {
+                SqlShowRepository.PopulateShowInfo(s);
 
-            RaiseEvent(routedEventArgs);
+                RoutedEventArgs routedEventArgs = new RoutedEventArgs(ClickedEvent);
+                RaiseEvent(routedEventArgs);
+            }
         }
     }
 }
