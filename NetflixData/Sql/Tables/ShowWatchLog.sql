@@ -1,8 +1,8 @@
-IF OBJECT_ID(N'Flix.ShowWatchCount') IS NULL
+IF OBJECT_ID(N'Flix.ShowWatchLog') IS NULL
 BEGIN
-	CREATE TABLE Flix.ShowWatchCount
+	CREATE TABLE Flix.ShowWatchLog
 	(
-		WatchCount INT NOT NULL,
+		WatchLogID INT NOT NULL IDENTITY(1, 1),
 		ShowID INT NOT NULL FOREIGN KEY
 			REFERENCES Flix.Show(ShowID),
 		UserID INT NOT NULL FOREIGN KEY

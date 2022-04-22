@@ -46,5 +46,10 @@ namespace NetflixLibrary.Views
                 dockPanel.Visibility = Visibility.Hidden;
             }
         }
+
+        private void RemoveLog(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }
