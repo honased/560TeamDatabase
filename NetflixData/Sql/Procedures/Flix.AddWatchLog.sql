@@ -4,8 +4,7 @@ CREATE OR ALTER PROCEDURE Flix.AddWatchLog
 	@ShowID INT
 AS
 
-INSERT Flix.ShowWatchCount(UserID, ShowID, IsDeleted)
-VALUES(@UserID, @ShowID, 0)
-
+INSERT Flix.ShowWatchLog(UserID, ShowID, IsDeleted)
+VALUES(@UserID, @ShowID, 0);
 
 GO

@@ -29,9 +29,9 @@ namespace NetflixData.Models
             }
         }
 
-        public List<string> Genres { get; set; }
+        public string[] Genres { get; set; }
 
-        public List<string> Cast { get; set; }
+        public string[] Cast { get; set; }
 
         public string MovieString => IsMovie ? "Movie" : "TV Show";
         public string ReleasedString => $"{ReleaseYear}";
@@ -58,9 +58,9 @@ namespace NetflixData.Models
             get
             {
                 StringBuilder builder = new StringBuilder();
-                for(int i = 0; i < Genres.Count; i++)
+                for(int i = 0; i < Genres.Length; i++)
                 {
-                    if (i < Genres.Count - 1) builder.Append(Genres[i] + ", ");
+                    if (i < Genres.Length - 1) builder.Append(Genres[i] + ", ");
                     else builder.Append(Genres[i]);
                 }
 
@@ -71,8 +71,6 @@ namespace NetflixData.Models
         public Show(int showID)
         {
             ShowID = showID;
-            Cast = new List<string>();
-            Genres = new List<string>();
         }
     }
 }

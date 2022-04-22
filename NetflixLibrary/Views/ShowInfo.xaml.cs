@@ -40,10 +40,34 @@ namespace NetflixLibrary.Views
             {
                 reviewBar.SetReview(s.MyReview);
                 dockPanel.Visibility = Visibility.Visible;
+                WatchLogList.ItemsSource = null;
+                WatchLogList.ItemsSource = SqlNetflixRepository.GetWatchLogs(SqlNetflixRepository.LoggedInUserID, s.ShowID);
             }
             else
             {
                 dockPanel.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void RemoveLog(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            if(sender is Button b && b.DataContext is WatchLog wl)
+            {
+                SqlNetflixRepository.RemoveWatchLog(wl.WatchLogID);
+                WatchLogList.ItemsSource = null;
+                WatchLogList.ItemsSource = SqlNetflixRepository.GetWatchLogs(SqlNetflixRepository.LoggedInUserID, wl.ShowID);
+            }
+        }
+
+        private void AddWatchLog(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            if(DataContext is Show s)
+            {
+                SqlNetflixRepository.AddWatchLog(SqlNetflixRepository.LoggedInUserID, s.ShowID);
+                WatchLogList.ItemsSource = null;
+                WatchLogList.ItemsSource = SqlNetflixRepository.GetWatchLogs(SqlNetflixRepository.LoggedInUserID, s.ShowID);
             }
         }
     }

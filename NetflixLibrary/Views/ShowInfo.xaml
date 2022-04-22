@@ -8,7 +8,22 @@
              d:DesignHeight="450" d:DesignWidth="200">
     <Border Width="200" BorderBrush="Black" BorderThickness="1" CornerRadius="8" DataContextChanged="OnDataContextChanged">
         <DockPanel x:Name="dockPanel" Visibility="Hidden">
-            <Button DockPanel.Dock="Bottom" Margin="4">Add Watch Log</Button>
+            <Button DockPanel.Dock="Bottom" Margin="4" Click="AddWatchLog">Add Watch Log</Button>
+            <ListView DockPanel.Dock="Bottom" Margin="4" Height="180" x:Name="WatchLogList" HorizontalContentAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Path=Log}" VerticalAlignment="Center" Grid.Column="0"/>
+                            <Button Foreground="Red" Click="RemoveLog" Grid.Column="1" Margin="2, 0" Padding="5, 0" HorizontalAlignment="Right">X</Button>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold">Watch Log Diary</TextBlock>
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel Orientation="Vertical" Margin="4">
                     <TextBlock Text="{Binding Path=Title}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16" TextWrapping="Wrap"></TextBlock>

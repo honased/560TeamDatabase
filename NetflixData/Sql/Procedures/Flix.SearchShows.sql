@@ -33,5 +33,6 @@ WHERE ((@SearchLibrary = 1 AND S.ShowID IN
 	AND ((D.DirectorID IS NULL AND @Director = N'') OR CHARINDEX(IIF(@Director = N'', P.FirstName + N' ' + P.LastName, @Director), P.FirstName + N' ' + P.LastName, 0) > 0)
 	AND ISNULL(@ReleaseYear, S.ReleaseYear) = S.ReleaseYear
 	AND ISNULL(@GenreID, SG.GenreID) = SG.GenreID
-GROUP BY S.ShowID, S.Title, S.ReleaseYear;
+GROUP BY S.ShowID, S.Title, S.ReleaseYear
+ORDER BY S.Title ASC, S.ReleaseYear ASC;
 GO

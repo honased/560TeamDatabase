@@ -1,26 +1,26 @@
-IF OBJECT_ID(N'Flix.ShowWatchCount') IS NULL
+IF OBJECT_ID(N'Flix.ShowWatchLog') IS NULL
 BEGIN
-	CREATE TABLE Flix.ShowWatchCount
+	CREATE TABLE Flix.ShowWatchLog
 	(
-		WatchCount INT NOT NULL,
+		WatchLogID INT NOT NULL IDENTITY(1, 1),
 		ShowID INT NOT NULL FOREIGN KEY
 			REFERENCES Flix.Show(ShowID),
 		UserID INT NOT NULL FOREIGN KEY
 			REFERENCES Flix.[User](UserID),
-		DateWatched DATETIMEOFFSET NOT NULL DEFAULT(SYSDATETIMEOFFSET()),
+		WatchedOn DATETIMEOFFSET NOT NULL DEFAULT(SYSDATETIMEOFFSET()),
 		IsDeleted BIT NOT NULL,
 
 
 		CONSTRAINT [PK_ShowWatchCount_WatchCount] PRIMARY KEY CLUSTERED
 		(
-			WatchCount ASC
+			WatchLogID ASC
 		),
 
 		CONSTRAINT [UK_ShowWatchCount_UserIDShowIDDateWatched] UNIQUE NONCLUSTERED
 		(
 			ShowID,
 			UserID,
-			DateWatched
+			WatchedOn
 		)
 
 	);

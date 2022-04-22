@@ -61,6 +61,12 @@ namespace NetflixData
             return executor.ExecuteReader(d);
         }
 
+        public static IReadOnlyList<WatchLog> GetWatchLogs(int userID, int showID)
+        {
+            var d = new GetWatchLogsDataDelegate(userID, showID);
+            return executor.ExecuteReader(d);
+        }
+
         public static void ReviewShow(int userID, int showID, int review)
         {
             var d = new ReviewShowDataDelegate(userID, showID, review);
@@ -76,6 +82,12 @@ namespace NetflixData
         public static void RemoveShowFromLibrary(int userID, int showID)
         {
             var d = new RemoveShowFromLibraryDataDelegate(userID, showID);
+            executor.ExecuteNonQuery(d);
+        }
+
+        public static void RemoveWatchLog(int watchLogID)
+        {
+            var d = new RemoveWatchLogDataDelegate(watchLogID);
             executor.ExecuteNonQuery(d);
         }
 

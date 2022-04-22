@@ -37,11 +37,9 @@ namespace NetflixData.DataDelegates
             show.IsMovie = reader.GetValue<bool>("IsMovie");
             show.AgeRating = reader.GetString("AgeRating");
 
-            string[] genres = reader.GetString("Genres").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            show.Genres.AddRange(genres);
+            show.Genres = reader.GetString("Genres").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-            string[] cast = reader.GetString("Cast").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            show.Cast.AddRange(cast);
+            show.Cast = reader.GetString("Cast").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             show.Director = reader.GetString("Directors");
 
