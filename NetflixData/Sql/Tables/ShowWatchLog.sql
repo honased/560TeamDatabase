@@ -11,12 +11,12 @@ BEGIN
 		IsDeleted BIT NOT NULL,
 
 
-		CONSTRAINT [PK_ShowWatchCount_WatchCount] PRIMARY KEY CLUSTERED
+		CONSTRAINT [PK_ShowWatchLog_WatchCount] PRIMARY KEY CLUSTERED
 		(
 			WatchLogID ASC
 		),
 
-		CONSTRAINT [UK_ShowWatchCount_UserIDShowIDDateWatched] UNIQUE NONCLUSTERED
+		CONSTRAINT [UK_ShowWatchLog_UserIDShowIDDateWatched] UNIQUE NONCLUSTERED
 		(
 			ShowID,
 			UserID,

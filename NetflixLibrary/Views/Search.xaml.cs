@@ -27,6 +27,7 @@ namespace NetflixLibrary.Views
             InitializeComponent();
 
             lastSearch = new SearchBar.SearchEventArgs();
+            ShowInfo.SimilarShowsBtn.Visibility = Visibility.Collapsed;
         }
 
         private void SearchBar_OnSearch(object sender, SearchBar.SearchEventArgs e)
@@ -47,10 +48,15 @@ namespace NetflixLibrary.Views
                 }
             }
 
-            Display.DataContext = new PaginatedShows(SqlNetflixRepository.SearchShows(SqlNetflixRepository.LoggedInUserID, e.Title, e.Director, releaseYear, e.GenreID, false));
-            PageControl.DataContext = Display.DataContext;
+            SetShows(SqlNetflixRepository.SearchShows(SqlNetflixRepository.LoggedInUserID, e.Title, e.Director, releaseYear, e.GenreID, false));
 
             lastSearch = e;
+        }
+
+        public void SetShows(IReadOnlyList<Show> shows)
+        {
+            Display.DataContext = new PaginatedShows(shows);
+            PageControl.DataContext = Display.DataContext;
         }
 
         private void Display_ShowClicked(object sender, RoutedEventArgs e)

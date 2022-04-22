@@ -70,5 +70,25 @@ namespace NetflixLibrary.Views
                 WatchLogList.ItemsSource = SqlNetflixRepository.GetWatchLogs(SqlNetflixRepository.LoggedInUserID, s.ShowID);
             }
         }
+
+        private void FindSimilarShows(object sender, RoutedEventArgs e)
+        {
+            if(DataContext is Show s)
+            {
+                var parent = Parent;
+
+                while (parent != null)
+                {
+                    if (parent is MainWindow mw)
+                    {
+                        mw.CancelRefresh = true;
+                        mw.MainTabs.SelectedIndex = 1;
+                        mw.search.SetShows(SqlNetflixRepository.GetSimilarShows(SqlNetflixRepository.LoggedInUserID, s.ShowID));
+                        break;
+                    }
+                    else parent = VisualTreeHelper.GetParent(parent);
+                }
+            }
+        }
     }
 }

@@ -25,7 +25,10 @@ namespace NetflixLibrary
         public MainWindow()
         {
             InitializeComponent();
+            CancelRefresh = false;
         }
+
+        public bool CancelRefresh { get; set; }
 
         private void LoginScreen_OnLogin(object sender, Views.LoginScreen.LoginEventArgs e)
         {
@@ -86,7 +89,11 @@ namespace NetflixLibrary
 
         private void SearchSelected(object sender, RoutedEventArgs e)
         {
-            search.Refresh();
+            if (!CancelRefresh)
+            {
+                search.Refresh();
+            }
+            else CancelRefresh = false;
         }
     }
 }

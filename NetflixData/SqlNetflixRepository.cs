@@ -55,6 +55,12 @@ namespace NetflixData
             return executor.ExecuteReader(d);
         }
 
+        public static IReadOnlyList<Show> GetSimilarShows(int userID, int showID)
+        {
+            var d = new GetSimilarShowsDataDelegate(userID, showID);
+            return executor.ExecuteReader(d);
+        }
+
         public static IReadOnlyList<Genre> GetAllGenres()
         {
             var d = new GetAllGenresDataDelegate();

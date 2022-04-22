@@ -6,7 +6,7 @@ WITH TopWatched(ShowID, CountOf) AS
 (
 	SELECT TOP(5)
 		S.ShowID, COUNT(*) AS COUNTOF
-	FROM Flix.ShowWatchCount S
+	FROM Flix.ShowWatchLog S
 	WHERE S.UserID = @UserID
 	GROUP BY S.ShowID
 	ORDER BY COUNTOF DESC
@@ -14,8 +14,7 @@ WITH TopWatched(ShowID, CountOf) AS
 
 SELECT
 	S.ShowID AS ShowID,
-	S.Title, 
+	S.Title,
 	S.ReleaseYear
 	FROM TopWatched TW
 		INNER JOIN Flix.Show S ON TW.ShowID = S.ShowID;
-	

@@ -7,8 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
     <Border Width="200" BorderBrush="Black" BorderThickness="1" CornerRadius="8" DataContextChanged="OnDataContextChanged">
-        <DockPanel x:Name="dockPanel" Visibility="Hidden">
-            <Button DockPanel.Dock="Bottom" Margin="4" Click="AddWatchLog">Add Watch Log</Button>
+        <DockPanel x:Name="dockPanel" Visibility="Visible">
+            <Button DockPanel.Dock="Bottom" Margin="4" Padding="0, 4" Click="FindSimilarShows" x:Name="SimilarShowsBtn">Find Similar Shows</Button>
+            <Button DockPanel.Dock="Bottom" Margin="4, 0" Padding="0, 4" Click="AddWatchLog">Add Watch Log</Button>
             <ListView DockPanel.Dock="Bottom" Margin="4" Height="180" x:Name="WatchLogList" HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>
