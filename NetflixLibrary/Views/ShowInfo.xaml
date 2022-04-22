@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
     <Border Width="200" BorderBrush="Black" BorderThickness="1" CornerRadius="8" DataContextChanged="OnDataContextChanged">
-        <DockPanel>
+        <DockPanel x:Name="dockPanel" Visibility="Hidden">
             <Button DockPanel.Dock="Bottom" Margin="4">Add Watch Log</Button>
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel Orientation="Vertical" Margin="4">

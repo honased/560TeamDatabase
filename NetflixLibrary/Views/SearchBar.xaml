@@ -16,7 +16,8 @@
             <TextBox TextWrapping="NoWrap" Width="50" VerticalAlignment="Center" Margin="2" Name="ReleaseYearText"></TextBox>
             <TextBlock VerticalAlignment="Center" Margin="2">Genre</TextBlock>
             <ComboBox Margin="2" Name="Genre"/>
-            <Button Margin="2" Padding="15, 0" Click="Button_Click">Search</Button>
+            <Button Margin="2" Padding="5, 0" Foreground="Red" Click="ClearGenre">X</Button>
+            <Button Margin="2" Padding="15, 0" Click="TriggerSearch">Search</Button>
         </StackPanel>
     </Border>
 </UserControl>

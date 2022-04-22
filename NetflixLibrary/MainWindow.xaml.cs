@@ -41,6 +41,11 @@ namespace NetflixLibrary
                 {
                     Login.Visibility = Visibility.Collapsed;
                     Application.Visibility = Visibility.Visible;
+                    library.ClearLastSearch();
+                    search.ClearLastSearch();
+                    library.Refresh();
+                    search.Refresh();
+                    MainTabs.SelectedIndex = 0;
                 }
                 else
                 {
@@ -53,6 +58,11 @@ namespace NetflixLibrary
                 {
                     Login.Visibility = Visibility.Collapsed;
                     Application.Visibility = Visibility.Visible;
+                    library.ClearLastSearch();
+                    search.ClearLastSearch();
+                    library.Refresh();
+                    search.Refresh();
+                    MainTabs.SelectedIndex = 0;
                 }
                 else
                 {
@@ -61,21 +71,16 @@ namespace NetflixLibrary
             }
         }
 
-        private void LibrarySelected(object sender, RoutedEventArgs e)
-        {
-            library.Refresh();
-        }
-
-        private void SearchSelected(object sender, RoutedEventArgs e)
-        {
-            search.Refresh();
-        }
-
         private void SignOut(object sender, RoutedEventArgs e)
         {
             Application.Visibility = Visibility.Collapsed;
             Login.Visibility = Visibility.Visible;
             lgScreen.Clear();
+        }
+
+        private void LibrarySelected(object sender, RoutedEventArgs e)
+        {
+            library.Refresh();
         }
     }
 }

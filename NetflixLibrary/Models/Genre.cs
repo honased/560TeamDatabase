@@ -12,7 +12,11 @@ namespace NetflixLibrary.Models
         public Genre(int genreID)
         {
             this.GenreID = genreID;
-            
+        }
+
+        public override string ToString()
+        {
+            return Name.Trim();
         }
     }
 }

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel>
-        <local:SearchBar DockPanel.Dock="Top" OnSearch="SearchBar_OnSearch"/>
+        <local:SearchBar DockPanel.Dock="Top" OnSearch="SearchBar_OnSearch" x:Name="searchBar"/>
         <local:PageControl DockPanel.Dock="Bottom" x:Name="PageControl"/>
         <local:ShowInfo DockPanel.Dock="Right" x:Name="ShowInfo"  Margin="2" />
         <local:ShowDisplay x:Name="Display" ShowClicked="Display_ShowClicked"/>

@@ -38,6 +38,11 @@ namespace NetflixLibrary.Views
             if(DataContext is Show s)
             {
                 reviewBar.SetReview(s.MyReview);
+                dockPanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                dockPanel.Visibility = Visibility.Hidden;
             }
         }
     }

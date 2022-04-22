@@ -25,9 +25,6 @@ namespace NetflixLibrary.Views
         {
             InitializeComponent();
             lastSearch = new SearchBar.SearchEventArgs();
-            lastSearch.Director = "";
-            lastSearch.ReleaseYear = "";
-            lastSearch.Title = "";
         }
 
         private void SearchBar_OnSearch(object sender, SearchBar.SearchEventArgs e)
@@ -48,7 +45,7 @@ namespace NetflixLibrary.Views
                 }
             }
 
-            Display.DataContext = new PaginatedShows(SqlNetflixRepository.SearchShows(SqlNetflixRepository.LoggedInUserID, e.Title, e.Director, releaseYear, null, true));
+            Display.DataContext = new PaginatedShows(SqlNetflixRepository.SearchShows(SqlNetflixRepository.LoggedInUserID, e.Title, e.Director, releaseYear, e.GenreID, true));
             PageControl.DataContext = Display.DataContext;
             lastSearch = e;
         }
@@ -62,9 +59,16 @@ namespace NetflixLibrary.Views
             }
         }
 
+        public void ClearLastSearch()
+        {
+            lastSearch = new SearchBar.SearchEventArgs();
+            searchBar.ClearOut();
+        }
+
         public void Refresh()
         {
-            //SearchBar_OnSearch(this, lastSearch);
+            SearchBar_OnSearch(this, lastSearch);
+            ShowInfo.DataContext = null;
         }
     }
 }
