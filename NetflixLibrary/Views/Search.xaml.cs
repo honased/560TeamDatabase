@@ -19,9 +19,13 @@ namespace NetflixLibrary.Views
     /// </summary>
     public partial class Search : UserControl
     {
+        private SearchBar.SearchEventArgs lastSearch;
+
         public Search()
         {
             InitializeComponent();
+
+            lastSearch = new SearchBar.SearchEventArgs();
         }
 
         private void SearchBar_OnSearch(object sender, SearchBar.SearchEventArgs e)
@@ -44,6 +48,8 @@ namespace NetflixLibrary.Views
 
             Display.DataContext = new PaginatedShows(SqlNetflixRepository.SearchShows(SqlNetflixRepository.LoggedInUserID, e.Title, e.Director, releaseYear, e.GenreID, false));
             PageControl.DataContext = Display.DataContext;
+
+            lastSearch = e;
         }
 
         private void Display_ShowClicked(object sender, RoutedEventArgs e)
@@ -62,8 +68,11 @@ namespace NetflixLibrary.Views
 
         public void Refresh()
         {
-            SearchBar_OnSearch(this, new SearchBar.SearchEventArgs());
+            int savedPage = 1;
+            if (PageControl.DataContext is PaginatedShows ps) savedPage = ps.Page;
+            SearchBar_OnSearch(this, lastSearch);
             ShowInfo.DataContext = null;
+            if (PageControl.DataContext is PaginatedShows ps2) ps2.Page = savedPage;
         }
     }
 }

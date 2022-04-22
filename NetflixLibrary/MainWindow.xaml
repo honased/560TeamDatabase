@@ -16,7 +16,7 @@
                 <TabItem Header="My Library" Selector.Selected="LibrarySelected">
                     <views:Library x:Name="library"/>
                 </TabItem>
-                <TabItem Header="Search Shows">
+                <TabItem Header="Search Shows" Selector.Selected="SearchSelected">
                     <views:Search x:Name="search"/>
                 </TabItem>
                 <TabItem Header="Sign Out">

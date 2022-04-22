@@ -82,5 +82,10 @@ namespace NetflixLibrary
         {
             library.Refresh();
         }
+
+        private void SearchSelected(object sender, RoutedEventArgs e)
+        {
+            search.Refresh();
+        }
     }
 }

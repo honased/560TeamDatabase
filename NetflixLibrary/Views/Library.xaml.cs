@@ -67,8 +67,11 @@ namespace NetflixLibrary.Views
 
         public void Refresh()
         {
+            int savedPage = 1;
+            if (PageControl.DataContext is PaginatedShows ps) savedPage = ps.Page;
             SearchBar_OnSearch(this, lastSearch);
             ShowInfo.DataContext = null;
+            if (PageControl.DataContext is PaginatedShows ps2) ps2.Page = savedPage;
         }
     }
 }
