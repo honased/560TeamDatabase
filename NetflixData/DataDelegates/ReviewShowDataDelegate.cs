@@ -1,20 +1,23 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using DataAccess;
 using System.Data.SqlClient;
+using System.Text;
 
-namespace NetflixLibrary.DataDelegates
+namespace NetflixData.DataDelegates
 {
-    public class AddShowToLibraryDataDelegate : DataDelegate
+    public class ReviewShowDataDelegate : DataDelegate
     {
         private readonly int userID;
         private readonly int showID;
+        private readonly int review;
 
-        public AddShowToLibraryDataDelegate(int userID, int showID) : base("Flix.AddShowToLibrary")
+        public ReviewShowDataDelegate(int userID, int showID, int review)
+            : base("Flix.ReviewShow")
         {
             this.userID = userID;
             this.showID = showID;
+            this.review = review;
         }
 
         public override void PrepareCommand(SqlCommand command)
@@ -23,6 +26,7 @@ namespace NetflixLibrary.DataDelegates
 
             command.Parameters.AddWithValue("UserID", userID);
             command.Parameters.AddWithValue("ShowID", showID);
+            command.Parameters.AddWithValue("Review", review);
         }
     }
 }

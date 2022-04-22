@@ -4,29 +4,28 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace NetflixLibrary.DataDelegates
+namespace NetflixData.DataDelegates
 {
-    public class ReviewShowDataDelegate : DataDelegate
+    internal class AddWatchLogDataDelegate : DataDelegate
     {
-        private readonly int userID;
         private readonly int showID;
-        private readonly int review;
+        private readonly int userID;
 
-        public ReviewShowDataDelegate(int userID, int showID, int review)
-            : base("Flix.ReviewShow")
+        public AddWatchLogDataDelegate(int userID, int showID)
+            : base("Flix.AddWatchLog")
         {
-            this.userID = userID;
             this.showID = showID;
-            this.review = review;
+            this.userID = userID;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-
             command.Parameters.AddWithValue("UserID", userID);
             command.Parameters.AddWithValue("ShowID", showID);
-            command.Parameters.AddWithValue("Review", review);
+            
+
         }
+        
     }
 }

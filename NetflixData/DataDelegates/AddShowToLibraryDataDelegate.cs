@@ -4,14 +4,14 @@ using System.Text;
 using DataAccess;
 using System.Data.SqlClient;
 
-namespace NetflixLibrary.DataDelegates
+namespace NetflixData.DataDelegates
 {
-    public class RemoveShowFromLibraryDataDelegate : DataDelegate
+    public class AddShowToLibraryDataDelegate : DataDelegate
     {
         private readonly int userID;
         private readonly int showID;
 
-        public RemoveShowFromLibraryDataDelegate(int userID, int showID) : base("Flix.RemoveShowFromLibrary")
+        public AddShowToLibraryDataDelegate(int userID, int showID) : base("Flix.AddShowToLibrary")
         {
             this.userID = userID;
             this.showID = showID;

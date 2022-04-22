@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using DataAccess;
-using NetflixLibrary.Models;
+using NetflixData.Models;
 
-namespace NetflixLibrary.DataDelegates
+namespace NetflixData.DataDelegates
 {
     public class GetSimilarShowsDataDelegate : DataReaderDelegate<IReadOnlyList<Show>>
     {

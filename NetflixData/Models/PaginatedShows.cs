@@ -4,7 +4,7 @@ using System.Text;
 using System.Linq;
 using System.ComponentModel;
 
-namespace NetflixLibrary.Models
+namespace NetflixData.Models
 {
     public class PaginatedShows : INotifyPropertyChanged
     {

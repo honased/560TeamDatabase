@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetflixLibrary", "NetflixLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A5AC459D-6C0A-4D6E-AD65-ECB3E0FEC3A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildDatabase", "BuildDatabase\BuildDatabase.csproj", "{F8E7C6A9-5471-481E-BCC8-01A166B87BBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildDatabase", "BuildDatabase\BuildDatabase.csproj", "{F8E7C6A9-5471-481E-BCC8-01A166B87BBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetflixData", "NetflixData\NetflixData.csproj", "{BC893E5D-7F92-4B63-925B-EC98E64BD92C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{F8E7C6A9-5471-481E-BCC8-01A166B87BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8E7C6A9-5471-481E-BCC8-01A166B87BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8E7C6A9-5471-481E-BCC8-01A166B87BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC893E5D-7F92-4B63-925B-EC98E64BD92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC893E5D-7F92-4B63-925B-EC98E64BD92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC893E5D-7F92-4B63-925B-EC98E64BD92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC893E5D-7F92-4B63-925B-EC98E64BD92C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

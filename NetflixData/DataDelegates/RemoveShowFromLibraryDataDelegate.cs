@@ -1,31 +1,28 @@
-﻿using DataAccess;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Text;
+using DataAccess;
+using System.Data.SqlClient;
 
-namespace NetflixLibrary.DataDelegates
+namespace NetflixData.DataDelegates
 {
-    internal class AddWatchLogDataDelegate : DataDelegate
+    public class RemoveShowFromLibraryDataDelegate : DataDelegate
     {
-        private readonly int showID;
         private readonly int userID;
+        private readonly int showID;
 
-        public AddWatchLogDataDelegate(int userID, int showID)
-            : base("Flix.AddWatchLog")
+        public RemoveShowFromLibraryDataDelegate(int userID, int showID) : base("Flix.RemoveShowFromLibrary")
         {
-            this.showID = showID;
             this.userID = userID;
+            this.showID = showID;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
+
             command.Parameters.AddWithValue("UserID", userID);
             command.Parameters.AddWithValue("ShowID", showID);
-            
-
         }
-        
     }
 }

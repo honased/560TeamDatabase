@@ -1,4 +1,5 @@
-﻿using NetflixLibrary.Models;
+﻿using NetflixData;
+using NetflixData.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

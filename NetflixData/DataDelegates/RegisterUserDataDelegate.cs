@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace NetflixLibrary.DataDelegates
+namespace NetflixData.DataDelegates
 {
-    internal class LoginUserDataDelegate : DataReaderDelegate<int?>
+    internal class RegisterUserDataDelegate : DataReaderDelegate<int?>
     {
         private readonly string username;
-        public LoginUserDataDelegate(string username)
-            : base("Flix.LoginUser")
+        public RegisterUserDataDelegate(string username)
+            : base("Flix.RegisterUser")
         {
             this.username = username;
         }
@@ -20,6 +20,7 @@ namespace NetflixLibrary.DataDelegates
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("Username", username);
+
         }
         public override int? Translate(SqlCommand command, IDataRowReader reader)
         {

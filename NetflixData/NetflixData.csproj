@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AddShowToLibraryDataDelegate.cs" />
+    <Compile Remove="AddWatchLogDataDelegate.cs" />
+    <Compile Remove="GetAllGenresDataDelegate.cs" />
+    <Compile Remove="GetMyFavoriteShowsDataDelegate.cs" />
+    <Compile Remove="GetMyMostWatchedShowsDataDelegate.cs" />
+    <Compile Remove="GetShowDataDelegate.cs" />
+    <Compile Remove="GetSimilarShowsDataDelegate.cs" />
+    <Compile Remove="LoginUserDataDelegate.cs" />
+    <Compile Remove="RegisterUserDataDelegate.cs" />
+    <Compile Remove="RemoveShowFromLibraryDataDelegate.cs" />
+    <Compile Remove="ReviewShowDataDelegate.cs" />
+    <Compile Remove="SearchShowsDataDelegate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

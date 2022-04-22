@@ -1,11 +1,11 @@
 ﻿using DataAccess;
-using NetflixLibrary.Models;
+using NetflixData.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace NetflixLibrary.DataDelegates
+namespace NetflixData.DataDelegates
 {
     internal class GetShowDataDelegate : DataReaderDelegate<Show>
     {

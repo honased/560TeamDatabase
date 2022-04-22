@@ -1,11 +1,11 @@
 ﻿using DataAccess;
-using NetflixLibrary.DataDelegates;
-using NetflixLibrary.Models;
+using NetflixData.DataDelegates;
+using NetflixData.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NetflixLibrary
+namespace NetflixData
 {
     public static class SqlNetflixRepository
     {
