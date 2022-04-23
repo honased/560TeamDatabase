@@ -67,6 +67,12 @@ namespace NetflixData
             return executor.ExecuteReader(d);
         }
 
+        public static IReadOnlyList<Genre> GetTopGenres(int UserID)
+        {
+            var d = new GetTopGenresDataDelegate(UserID);
+            return executor.ExecuteReader(d);
+        }
+
         public static IReadOnlyList<WatchLog> GetWatchLogs(int userID, int showID)
         {
             var d = new GetWatchLogsDataDelegate(userID, showID);
