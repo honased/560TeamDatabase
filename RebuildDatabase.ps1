@@ -86,6 +86,10 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRo
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\InsertData\InsertPeople.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\InsertData\InsertActors.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\InsertData\InsertDirectors.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\InsertData\InsertUsers.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\InsertData\InsertUserShowLibrary.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\InsertData\InsertShowReviews.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\InsertData\InsertShowWatchLog.sql"
 
 Write-Host "Rebuild completed."
 Write-Host ""
