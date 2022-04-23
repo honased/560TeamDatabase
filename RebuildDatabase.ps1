@@ -73,6 +73,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRo
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\Procedures\Flix.SearchShows.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\Procedures\Flix.GetSimilarShows.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\Procedures\Flix.GetAllGenres.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\Procedures\Flix.GetTopGenres.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\Procedures\Flix.GetMyFavoriteShows.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile $PSScriptRoot\"NetflixData\Sql\Procedures\Flix.GetMyMostWatchedShows.sql"
 

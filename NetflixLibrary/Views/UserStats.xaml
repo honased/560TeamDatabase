@@ -35,5 +35,16 @@
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="2" Grid.Row="1" Grid.Column="1" Margin="2">
             <local:ShowDisplay x:Name="MostWatchedShows"/>
         </Border>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource StatTitle}">Top Genres</TextBlock>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="2" Grid.Row="2" Grid.Column="1" Margin="2">
+            <ListView x:Name="TopGenres">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </Border>
     </Grid>
 </UserControl>

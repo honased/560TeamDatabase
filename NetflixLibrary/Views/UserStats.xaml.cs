@@ -29,6 +29,8 @@ namespace NetflixLibrary.Views
         {
             FavoriteShows.DataContext = new PaginatedShows(SqlNetflixRepository.GetMyFavoriteShows(SqlNetflixRepository.LoggedInUserID));
             MostWatchedShows.DataContext = new PaginatedShows(SqlNetflixRepository.GetMyMostWatchedShows(SqlNetflixRepository.LoggedInUserID));
+            TopGenres.ItemsSource = null;
+            TopGenres.ItemsSource = SqlNetflixRepository.GetTopGenres(SqlNetflixRepository.LoggedInUserID);
         }
     }
 }
