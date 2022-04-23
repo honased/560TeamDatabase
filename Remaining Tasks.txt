@@ -1,9 +1,9 @@
 VIEW (EDH)
-    - Fully integrate reviews
-    - Fully integrate show watch log
-    - Add a log out feature
-    - Add a tab with user info (like favorite shows)
-    - Add support for similar shows button
+    X Fully integrate reviews
+    X Fully integrate show watch log
+    X Add a log out feature
+    X Add a tab with user info (like favorite shows)
+    X Add support for similar shows button
 
 SQL
     - Review if all columns are necessary (MW)

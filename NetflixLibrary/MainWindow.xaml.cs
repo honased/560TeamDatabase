@@ -95,5 +95,10 @@ namespace NetflixLibrary
             }
             else CancelRefresh = false;
         }
+
+        private void UserStatsSelected(object sender, RoutedEventArgs e)
+        {
+            userStats.Refresh();
+        }
     }
 }

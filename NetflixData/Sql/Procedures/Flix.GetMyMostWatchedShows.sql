@@ -7,7 +7,7 @@ WITH TopWatched(ShowID, CountOf) AS
 	SELECT TOP(5)
 		S.ShowID, COUNT(*) AS COUNTOF
 	FROM Flix.ShowWatchLog S
-	WHERE S.UserID = @UserID
+	WHERE S.UserID = @UserID AND S.IsDeleted = 0
 	GROUP BY S.ShowID
 	ORDER BY COUNTOF DESC
 )
