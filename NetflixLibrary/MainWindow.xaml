@@ -9,7 +9,7 @@
         Title="MainWindow" Height="720" Width="1280">
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="2" VerticalAlignment="Stretch" x:Name="Login" Visibility="Visible">
-            <views:LoginScreen OnLogin="LoginScreen_OnLogin" x:Name="lgScreen"/>
+            <views:LoginScreen OnLogin="OnLogin" x:Name="lgScreen"/>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="2" Visibility="Collapsed" x:Name="Application">
             <TabControl Margin="4" x:Name="MainTabs">

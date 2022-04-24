@@ -16,7 +16,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:ShowBox Margin="10px" Clicked="ShowBox_Clicked" x:Name="SBox"/>
+                        <local:ShowBox Margin="10px" Clicked="OnBoxClicked" x:Name="SBox"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

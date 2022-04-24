@@ -1,4 +1,6 @@
-﻿using System;
+﻿// View that displays a collection of shows as ShowBoxes.
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -25,7 +27,12 @@ namespace NetflixLibrary.Views
             InitializeComponent();
         }
 
-        private void ShowBox_Clicked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Invoke the event ShowClicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnBoxClicked(object sender, RoutedEventArgs e)
         {
             if(sender is ShowBox sb)
             {

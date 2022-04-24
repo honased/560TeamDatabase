@@ -1,4 +1,6 @@
-﻿using NetflixData.Models;
+﻿// View for controlling a collection of pages of shows.
+
+using NetflixData.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,7 +29,13 @@ namespace NetflixLibrary.Views
             PageText.IsEnabled = false;
         }
 
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        /// <summary>
+        /// On enter, attempt to set the page to the given input. If the
+        /// input is not a number, a message box is displayed.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event argumnts</param>
+        private void CheckEnter(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter && DataContext is PaginatedShows ps)
             {
@@ -42,6 +50,11 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// Refresh the pagination display when the data context changes.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if(DataContext is PaginatedShows ps)
@@ -59,6 +72,13 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// When the left button is pressed, try to decrement
+        /// the page. Disable/enable the left and right buttons
+        /// accordingly.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void LeftClick(object sender, RoutedEventArgs e)
         {
             if(DataContext is PaginatedShows ps)
@@ -70,6 +90,13 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// When the right button is pressed, try to increment
+        /// the page. Disable/enable the left and right buttons
+        /// accordingly.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void RightClick(object sender, RoutedEventArgs e)
         {
             if (DataContext is PaginatedShows ps)

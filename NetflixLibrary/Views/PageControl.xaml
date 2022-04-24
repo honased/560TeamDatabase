@@ -12,7 +12,7 @@
             <Button DockPanel.Dock="Right" Content="&gt;" FontWeight="Bold" Margin="2" VerticalAlignment="Center" FontSize="18" Padding="20, 0" Click="RightClick"  x:Name="RightButton"/>
             <Border>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                    <TextBox Width="40" FontSize="18" VerticalAlignment="Center" KeyDown="TextBox_KeyDown" x:Name="PageText"></TextBox>
+                    <TextBox Width="40" FontSize="18" VerticalAlignment="Center" KeyDown="CheckEnter" x:Name="PageText"></TextBox>
                     <TextBlock VerticalAlignment="Center" Margin="4, 0" FontSize="18" Text="{Binding Path=PageCountDisplay}"/>
                 </StackPanel>
             </Border>

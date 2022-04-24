@@ -1,4 +1,7 @@
-﻿using NetflixData;
+﻿// View that displays all show info such as reviews, title,
+// IsMovie, watchlog, etc.
+
+using NetflixData;
 using NetflixData.Models;
 using System;
 using System.Collections.Generic;
@@ -25,7 +28,13 @@ namespace NetflixLibrary.Views
             InitializeComponent();
         }
 
-        private void ReviewBar_OnReview(object sender, int e)
+        /// <summary>
+        /// On the user choosing a review, the review is
+        /// added for the given show.
+        /// </summary>
+        /// <param name="sender">The review bar</param>
+        /// <param name="e">The new review</param>
+        private void OnReview(object sender, int e)
         {
             if(DataContext is Show s)
             {
@@ -34,6 +43,12 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// Update the view fields accordingly when the data
+        /// context changes.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if(DataContext is Show s)
@@ -49,6 +64,11 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// Remove a watch log from the user's log diary.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void RemoveLog(object sender, RoutedEventArgs e)
         {
             e.Handled = true;
@@ -60,6 +80,11 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// Add a watch log to the user's log diary.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void AddWatchLog(object sender, RoutedEventArgs e)
         {
             e.Handled = true;
@@ -71,6 +96,13 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// Finds all similar shows to the currently selected show. Updates
+        /// the search tab to display these shows, and gives focus to the
+        /// search page.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void FindSimilarShows(object sender, RoutedEventArgs e)
         {
             if(DataContext is Show s)

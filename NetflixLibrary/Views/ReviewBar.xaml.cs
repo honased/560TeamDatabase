@@ -1,4 +1,6 @@
-﻿using System;
+﻿// View for leaving reviews on shows
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -31,6 +33,11 @@ namespace NetflixLibrary.Views
             foreach(RadioButton b in buttons) b.Checked += RadioChecked;
         }
 
+        /// <summary>
+        /// Invokes the review event with the review as the event argument.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void RadioChecked(object sender, RoutedEventArgs e)
         {
             if(sender is RadioButton b)
@@ -42,6 +49,10 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// Sets the review to be displayed in the radio button
+        /// </summary>
+        /// <param name="review">The review between [1..5]</param>
         public void SetReview(int? review)
         {
             if(review.HasValue)
@@ -54,6 +65,9 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// Removes the RadioChecked event
+        /// </summary>
         ~ReviewBar()
         {
             foreach (RadioButton b in buttons) b.Checked -= RadioChecked;

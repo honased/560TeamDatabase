@@ -1,4 +1,6 @@
-﻿using NetflixData;
+﻿// View for displaying all interesting user statistics.
+
+using NetflixData;
 using NetflixData.Models;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,10 @@ namespace NetflixLibrary.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Updates the view to display the new Favorite Shows,
+        /// Most Watched Shows, and Top Genres.
+        /// </summary>
         public void Refresh()
         {
             FavoriteShows.DataContext = new PaginatedShows(SqlNetflixRepository.GetMyFavoriteShows(SqlNetflixRepository.LoggedInUserID));

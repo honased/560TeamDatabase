@@ -58,7 +58,7 @@
                         <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Path=AverageRatingString}"></TextBlock>
 
                         <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="5">My Rating</TextBlock>
-                        <local:ReviewBar Grid.Column="1" Grid.Row="5" OnReview="ReviewBar_OnReview" x:Name="reviewBar"/>
+                        <local:ReviewBar Grid.Column="1" Grid.Row="5" OnReview="OnReview" x:Name="reviewBar"/>
                     </Grid>
                     <TextBlock HorizontalAlignment="Center">Cast</TextBlock>
                     <ListView ItemsSource="{Binding Path=Cast}"/>

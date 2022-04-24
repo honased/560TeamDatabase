@@ -1,4 +1,6 @@
-﻿using System;
+﻿// View for logging in and registering a user.
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,6 +20,9 @@ namespace NetflixLibrary.Views
     /// </summary>
     public partial class LoginScreen : UserControl
     {
+        /// <summary>
+        /// The login event arguments.
+        /// </summary>
         public class LoginEventArgs
         {
             public bool IsRegister { get; set; }
@@ -31,16 +36,29 @@ namespace NetflixLibrary.Views
             InitializeComponent();
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Invoke the login event with register set to false.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
+        private void LoginPressed(object sender, RoutedEventArgs e)
         {
             OnLogin?.Invoke(this, new LoginEventArgs() { IsRegister = false, Username = UsernameText.Text });
         }
 
-        private void Register_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Invoke the login event with register set to true.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
+        private void RegisterPressed(object sender, RoutedEventArgs e)
         {
             OnLogin?.Invoke(this, new LoginEventArgs() { IsRegister = true, Username = UsernameText.Text });
         }
 
+        /// <summary>
+        /// Clear out the username field.
+        /// </summary>
         public void Clear()
         {
             UsernameText.Clear();

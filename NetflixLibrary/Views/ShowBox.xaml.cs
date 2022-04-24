@@ -1,4 +1,6 @@
-﻿using NetflixData;
+﻿// View that displays a show as a nice show box
+
+using NetflixData;
 using NetflixData.Models;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,9 @@ namespace NetflixLibrary.Views
             ownerType: typeof(ShowBox)
         );
 
+        /// <summary>
+        /// Event for being clicked.
+        /// </summary>
         public event RoutedEventHandler Clicked
         {
             add { AddHandler(ClickedEvent, value); }
@@ -38,6 +43,12 @@ namespace NetflixLibrary.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Further populates the show info and invokes the 
+        /// Clicked event.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void OnLeftClick(object sender, MouseButtonEventArgs e)
         {
             if(DataContext is Show s)
@@ -49,7 +60,13 @@ namespace NetflixLibrary.Views
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Adds or removes the show from the library based on
+        /// if it is in the library or not.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
+        private void AddRemoveLibrary(object sender, RoutedEventArgs e)
         {
             if(DataContext is Show s)
             {

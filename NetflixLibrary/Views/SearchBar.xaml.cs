@@ -1,4 +1,6 @@
-﻿using NetflixData;
+﻿// View for displaying a search bar with multiple input fields.
+
+using NetflixData;
 using NetflixData.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,9 @@ namespace NetflixLibrary.Views
     /// </summary>
     public partial class SearchBar : UserControl
     {
+        /// <summary>
+        /// Search event arguments
+        /// </summary>
         public class SearchEventArgs
         {
             public string Title { get; set; }
@@ -44,6 +49,11 @@ namespace NetflixLibrary.Views
             Genre.ItemsSource = SqlNetflixRepository.GetAllGenres();
         }
 
+        /// <summary>
+        /// Invoke the search event and provide the input fields as arguments.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void TriggerSearch(object sender, RoutedEventArgs e)
         {
             var args = new SearchEventArgs() { Director = DirectorText.Text, ReleaseYear = ReleaseYearText.Text, Title = TitleText.Text };
@@ -51,6 +61,11 @@ namespace NetflixLibrary.Views
             OnSearch?.Invoke(this, args);
         }
 
+        /// <summary>
+        /// On enter, call the TriggerSearch.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void CheckForEnter(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter)
@@ -59,6 +74,9 @@ namespace NetflixLibrary.Views
             }
         }
 
+        /// <summary>
+        /// Clear out the serach bar.
+        /// </summary>
         public void ClearOut()
         {
             DirectorText.Clear();
@@ -67,6 +85,11 @@ namespace NetflixLibrary.Views
             Genre.SelectedItem = null;
         }
 
+        /// <summary>
+        /// Clear out the genre.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         private void ClearGenre(object sender, RoutedEventArgs e)
         {
             Genre.SelectedItem = null;
