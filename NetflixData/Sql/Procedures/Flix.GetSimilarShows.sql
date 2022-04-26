@@ -1,3 +1,5 @@
+--This procedure finds similar shows to a given show by finding shows in other user's libraries that have the same genres.
+--It sorts the results by number of user's with that show in their library then by average rating.
 CREATE OR ALTER PROCEDURE Flix.GetSimilarShows
 	@UserID INT,
 	@ShowID INT

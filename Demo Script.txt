@@ -1,0 +1,20 @@
+1. Incorrectly type in the username (i.e. type "Zaelda" or something) 
+
+2. Click ok on the error message and then correctly type "Zelda"
+
+3. Click on the entry "Christmas Break-In" in the user library 
+
+4. Talk about the information given on the show in the box
+
+5. Click on "Find Similar Shows" and mention how it finds shows with the same genres as the original show in other user's libraries
+
+6. Click on the "User Statisics" tab and explain the different sections
+
+7. Represent a change of statistics by going back to the library and adding a couple watch logs to "Richie Rich" and going back to the stats page
+
+8. Now add a show to the library by going to the search tab and typing "stranger" in title section and adding "Stranger Things"
+Go back to library to show that it has been added
+
+9. Represent another search by entering 2000 for release year and Comedies as genres. Click on a few to show that the results are correct.
+
+10. Now log out of the user.

@@ -1,3 +1,5 @@
+--This procedure adds a show to a user's library.
+--If the show is already in the library it does nothing unless it was deleted in which it adds it back in.
 CREATE OR ALTER PROCEDURE Flix.AddShowToLibrary
 	@UserID INT,
 	@ShowID INT

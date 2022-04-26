@@ -1,3 +1,4 @@
+--This procedure removes a show from a user's library by setting its IsDeleted column to one.
 CREATE OR ALTER PROCEDURE Flix.RemoveShowFromLibrary
 	@UserID INT,
 	@ShowID INT
