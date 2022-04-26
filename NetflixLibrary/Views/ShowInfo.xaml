@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NetflixLibrary.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="200">
-    <Border Width="200" BorderBrush="Black" BorderThickness="1" CornerRadius="8" DataContextChanged="OnDataContextChanged">
-        <DockPanel x:Name="dockPanel" Visibility="Visible">
-            <Button DockPanel.Dock="Bottom" Margin="4" Padding="0, 4" Click="FindSimilarShows" x:Name="SimilarShowsBtn">Find Similar Shows</Button>
-            <Button DockPanel.Dock="Bottom" Margin="4, 0" Padding="0, 4" Click="AddWatchLog">Add Watch Log</Button>
+             d:DesignHeight="450" d:DesignWidth="250">
+    <Border Width="250" BorderBrush="Black" BorderThickness="1" CornerRadius="8" DataContextChanged="OnDataContextChanged">
+        <DockPanel x:Name="dockPanel" Visibility="Hidden">
+            <Button DockPanel.Dock="Bottom" Margin="4" Padding="0, 4" Click="FindSimilarShows" x:Name="SimilarShowsBtn" FontSize="16">Find Similar Shows</Button>
+            <Button DockPanel.Dock="Bottom" Margin="4, 0" Padding="0, 4" Click="AddWatchLog" FontSize="16">Add Watch Log</Button>
             <ListView DockPanel.Dock="Bottom" Margin="4" Height="180" x:Name="WatchLogList" HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -18,17 +18,17 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Path=Log}" VerticalAlignment="Center" Grid.Column="0"/>
-                            <Button Foreground="Red" Click="RemoveLog" Grid.Column="1" Margin="2, 0" Padding="5, 0" HorizontalAlignment="Right">X</Button>
+                            <TextBlock Text="{Binding Path=Log}" VerticalAlignment="Center" Grid.Column="0" FontSize="14" TextTrimming="CharacterEllipsis"/>
+                            <Button Foreground="Red" Click="RemoveLog" Grid.Column="1" Margin="2, 0" Padding="5, 0" HorizontalAlignment="Right" FontSize="14">X</Button>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold">Watch Log Diary</TextBlock>
+            <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16">Watch Log Diary</TextBlock>
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel Orientation="Vertical" Margin="4">
                     <TextBlock Text="{Binding Path=Title}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16" TextWrapping="Wrap"></TextBlock>
-                    <TextBlock Text="{Binding Path=MovieString}" HorizontalAlignment="Center" FontStyle="Italic"></TextBlock>
+                    <TextBlock Text="{Binding Path=MovieString}" HorizontalAlignment="Center" FontStyle="Italic" FontSize="14"></TextBlock>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
@@ -42,26 +42,26 @@
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">Released</TextBlock>
-                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="0" Text="{Binding Path=ReleasedString}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" FontSize="14">Released</TextBlock>
+                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="0" FontSize="14"  Text="{Binding Path=ReleasedString}"></TextBlock>
 
-                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1">Age Rating</TextBlock>
-                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Text="{Binding Path=AgeRating}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" FontSize="14">Age Rating</TextBlock>
+                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" FontSize="14" Text="{Binding Path=AgeRating}"></TextBlock>
 
-                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2">Director</TextBlock>
-                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Director}" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2" FontSize="14">Director</TextBlock>
+                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" FontSize="14" Text="{Binding Path=Director}" TextWrapping="Wrap"></TextBlock>
 
-                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3">Genres</TextBlock>
-                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Path=GenresString}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3" FontSize="14">Genres</TextBlock>
+                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" FontSize="14" TextWrapping="Wrap" Text="{Binding Path=GenresString}"></TextBlock>
 
-                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4">Rating</TextBlock>
-                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Path=AverageRatingString}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4" FontSize="14">Rating</TextBlock>
+                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4" FontSize="14" TextWrapping="Wrap" Text="{Binding Path=AverageRatingString}"></TextBlock>
 
-                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="5">My Rating</TextBlock>
-                        <local:ReviewBar Grid.Column="1" Grid.Row="5" OnReview="OnReview" x:Name="reviewBar"/>
+                        <TextBlock HorizontalAlignment="Left" Grid.Column="0" Grid.Row="5" FontSize="14">My Rating</TextBlock>
+                        <local:ReviewBar Grid.Column="1" Grid.Row="5" OnReview="OnReview" FontSize="14" x:Name="reviewBar"/>
                     </Grid>
-                    <TextBlock HorizontalAlignment="Center">Cast</TextBlock>
-                    <ListView ItemsSource="{Binding Path=Cast}"/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">Cast</TextBlock>
+                    <ListView ItemsSource="{Binding Path=Cast}" FontSize="14"/>
                 </StackPanel>
             </ScrollViewer>
         </DockPanel>

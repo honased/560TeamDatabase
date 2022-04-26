@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8, 0" FontSize="20">Username:</TextBlock>
-                <TextBox Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" VerticalContentAlignment="Center" x:Name="UsernameText"/>
+                <TextBox Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" VerticalContentAlignment="Center" x:Name="UsernameText" KeyDown="CheckEnter"/>
             </Grid>
             <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="2, 2" FontSize="20" VerticalAlignment="Stretch" Click="LoginPressed">Login</Button>
             <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="2, 2" FontSize="20" VerticalAlignment="Stretch" Click="RegisterPressed">Register</Button>

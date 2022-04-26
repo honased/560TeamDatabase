@@ -6,15 +6,15 @@
              xmlns:local="clr-namespace:NetflixLibrary.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border Height="25" BorderThickness="1" BorderBrush="Black" CornerRadius="2" KeyDown="CheckForEnter">
+    <Border Height="35" BorderThickness="1" BorderBrush="Black" CornerRadius="2" KeyDown="CheckForEnter">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <TextBlock VerticalAlignment="Center" Margin="2">Title</TextBlock>
+            <TextBlock VerticalAlignment="Center" Margin="2" FontSize="14" FontWeight="Bold">Title</TextBlock>
             <TextBox TextWrapping="NoWrap" Width="150" VerticalAlignment="Center" Margin="2" Name="TitleText"></TextBox>
-            <TextBlock VerticalAlignment="Center" Margin="2">Director</TextBlock>
+            <TextBlock VerticalAlignment="Center" Margin="2" FontSize="14" FontWeight="Bold">Director</TextBlock>
             <TextBox TextWrapping="NoWrap" Width="100" VerticalAlignment="Center" Margin="2" Name="DirectorText"></TextBox>
-            <TextBlock VerticalAlignment="Center" Margin="2">Release Year</TextBlock>
+            <TextBlock VerticalAlignment="Center" Margin="2" FontSize="14" FontWeight="Bold">Release Year</TextBlock>
             <TextBox TextWrapping="NoWrap" Width="50" VerticalAlignment="Center" Margin="2" Name="ReleaseYearText"></TextBox>
-            <TextBlock VerticalAlignment="Center" Margin="2">Genre</TextBlock>
+            <TextBlock VerticalAlignment="Center" Margin="2" FontSize="14" FontWeight="Bold">Genre</TextBlock>
             <ComboBox Margin="2" Name="Genre"/>
             <Button Margin="2" Padding="5, 0" Foreground="Red" Click="ClearGenre">X</Button>
             <Button Margin="2" Padding="15, 0" Click="TriggerSearch">Search</Button>

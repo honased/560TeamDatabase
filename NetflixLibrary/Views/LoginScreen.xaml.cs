@@ -63,5 +63,18 @@ namespace NetflixLibrary.Views
         {
             UsernameText.Clear();
         }
+
+        /// <summary>
+        /// Check for an enter press, and if so, trigger a login pressed event.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
+        private void CheckEnter(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                LoginPressed(null, new RoutedEventArgs());
+            }
+        }
     }
 }

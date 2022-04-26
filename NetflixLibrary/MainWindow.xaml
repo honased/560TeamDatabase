@@ -13,16 +13,16 @@
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="2" Visibility="Collapsed" x:Name="Application">
             <TabControl Margin="4" x:Name="MainTabs">
-                <TabItem Header="My Library" Selector.Selected="LibrarySelected">
+                <TabItem Header="My Library" FontSize="16" Selector.Selected="LibrarySelected">
                     <views:Library x:Name="library"/>
                 </TabItem>
-                <TabItem Header="Search Shows" Selector.Selected="SearchSelected">
+                <TabItem Header="Search Shows" FontSize="16" Selector.Selected="SearchSelected">
                     <views:Search x:Name="search"/>
                 </TabItem>
-                <TabItem Header="User Statistics" Selector.Selected="UserStatsSelected">
+                <TabItem Header="User Statistics" FontSize="16" Selector.Selected="UserStatsSelected">
                     <views:UserStats x:Name="userStats"/>
                 </TabItem>
-                <TabItem Header="Sign Out">
+                <TabItem Header="Sign Out" FontSize="16">
                     <Button Width="300" Height="100" FontSize="24" FontWeight="Bold" Click="SignOut">Sign Out</Button>
                 </TabItem>
             </TabControl>
