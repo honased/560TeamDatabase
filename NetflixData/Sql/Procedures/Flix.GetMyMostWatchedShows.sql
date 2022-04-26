@@ -1,4 +1,6 @@
-﻿CREATE OR ALTER PROCEDURE Flix.GetMyMostWatchedShows
+﻿-- A procedure that returns the top(5) most watched shows for a user
+-- Returns a list of shows that occurs most in the show watch log
+CREATE OR ALTER PROCEDURE Flix.GetMyMostWatchedShows
 	@UserID INT
 AS
 

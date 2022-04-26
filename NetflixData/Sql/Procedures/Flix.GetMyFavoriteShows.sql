@@ -1,4 +1,6 @@
-﻿CREATE OR ALTER PROCEDURE Flix.GetMyFavoriteShows
+﻿--This procedure gets a Users favorite shows
+-- based off their ShowReviews
+CREATE OR ALTER PROCEDURE Flix.GetMyFavoriteShows
 	@UserID INT
 AS
 
