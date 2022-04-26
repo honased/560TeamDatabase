@@ -1,3 +1,5 @@
+-- This procedure will perform a merge to either insert or update a review
+-- for the user on the given show.
 CREATE OR ALTER PROCEDURE Flix.ReviewShow
 	@UserID INT,
 	@ShowID INT,

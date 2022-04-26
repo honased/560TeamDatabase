@@ -1,3 +1,7 @@
+-- This procedure performs a variety of filters to search through the show database.
+-- It allows for a title, director, release year, and genre to each be either specified
+-- or ignored. The SearchLibrary bit also allows for a toggle between searching for shows
+-- either in our outside of a User's library.
 CREATE OR ALTER PROCEDURE Flix.SearchShows
 	@UserID INT,
 	@Title NVARCHAR(128),

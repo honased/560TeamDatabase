@@ -1,3 +1,5 @@
+-- This procedure gets all associated watch logs with a show for a user.
+-- It is ordered by the watched date asc.
 CREATE OR ALTER PROCEDURE Flix.GetWatchLogs
     @UserID INT,
     @ShowID INT

@@ -1,3 +1,6 @@
+-- This procedure takes a user and show and returns specific information regarding that show.
+-- This information includes the title, if it is a movie, the age rating, the release year,
+-- all associated genres, the cast, the directors, the average review, and  the user's review.
 CREATE OR ALTER PROCEDURE Flix.GetShow
 	@UserID INT,
 	@ShowID INT

@@ -1,8 +1,10 @@
-﻿CREATE OR ALTER PROCEDURE Flix.RegisterUser
+﻿-- This procedure will insert a user and return the userid if the username
+-- does not exist. Otherwise, no row is returned.
+CREATE OR ALTER PROCEDURE Flix.RegisterUser
     @Username NVARCHAR(64)
 AS
 BEGIN
-DECLARE @WillRegisterUser BIT = 
+DECLARE @WillRegisterUser BIT =
     (
         SELECT IIF(NOT EXISTS
             (
