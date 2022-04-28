@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildDatabase", "BuildDatab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetflixData", "NetflixData\NetflixData.csproj", "{BC893E5D-7F92-4B63-925B-EC98E64BD92C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetflixDataTests", "NetflixDataTests\NetflixDataTests.csproj", "{4A1C2A22-F228-4817-87E3-737D61844C93}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,10 +32,6 @@ Global
 		{BC893E5D-7F92-4B63-925B-EC98E64BD92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC893E5D-7F92-4B63-925B-EC98E64BD92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC893E5D-7F92-4B63-925B-EC98E64BD92C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A1C2A22-F228-4817-87E3-737D61844C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A1C2A22-F228-4817-87E3-737D61844C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A1C2A22-F228-4817-87E3-737D61844C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A1C2A22-F228-4817-87E3-737D61844C93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
