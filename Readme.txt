@@ -35,7 +35,7 @@ NetflixData (C#)
     - All Models can be found in "Models" subfolder
         - These roughly map into specific tables from the Sql folder
 
-NetflixLibrary (C# / WPF)
+NetflixLibrary (C# / WPF) <- This is the Startup Project
     - The View of the project implemented in WPF
     - All views are represented by a view definition "*.xaml" and the codebehind "*.xaml.cs"
 
